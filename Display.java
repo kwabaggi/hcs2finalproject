@@ -261,6 +261,22 @@ public class Display extends JComponent implements
           throw new RuntimeException("Unable to load:  " + fileName);
         pac = new ImageIcon(url).getImage();
       }
+
+      //check if Ghost is close enough to pac
+      for(Ghost ghost : ghosts){
+        double dist = Math.sqrt(Math.pow((double)ghost.getX()-imageX, 2)+Math.pow((double)ghost.getY()-imageY, 2));
+        System.out.println(dist);
+        if(dist < 25){ //distance formula
+          return;
+        }
+      }
+
+      //change the ghosts' coords
+      ghost1.changeLocation();
+      ghost2.changeLocation();
+      ghost3.changeLocation();
+      ghost4.changeLocation();
+
       repaint();  //indicates Display must be redrawn (Java will call paintComponent)
       try{Thread.sleep(25);} catch(Exception e){}  //give Java 100ms to run paintComponent
     }
