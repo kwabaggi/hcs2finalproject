@@ -98,7 +98,7 @@ public class Display extends JComponent implements
     g.fillRect(800,100, 10,75);
     g.fillRect(400,175,410,10);
     g.fillRect(400,175,10,210);
-    g.fillRect(400,500,10,200);
+    g.fillRect(400,500,10,300);
     g.fillRect(400,700,575,10);
     g.fillRect(975,560,10,150);
     g.fillRect(975,560,50,10);
@@ -106,8 +106,13 @@ public class Display extends JComponent implements
     g.fillRect(1100,175,10,375);
     g.fillRect(925,175,175,10);
     g.fillRect(925,175,10,50);
-    g.fillRect(500,295,425,50);
-    g.fillRect(displayWidth/2-(150/2),(displayHeight/2-(150/2))+80,150,10);
+    g.fillRect(500,290,425,50);
+    g.fillRect(850,410,10,175);
+    g.fillRect(150,100,75,350);
+    g.fillRect(150,550,75,100);
+    g.fillRect(225,275,175,10);
+    g.fillRect(1100,340,150,10);
+    g.fillRect(displayWidth/2-(150/2),(displayHeight/2-(150/2))+80,150,10); //GHOST SQUARE
     g.fillRect(displayWidth/2-(150/2),(displayHeight/2-(150/2))+80,10,150);
     g.fillRect(displayWidth/2+(150/2),(displayHeight/2-(150/2))+80,10,150);
     g.fillRect(displayWidth/2-(150/2),(displayHeight/2+(150/2))+80,160,10);
