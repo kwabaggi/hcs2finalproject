@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.net.*;
+import java.util.*;
 import javax.swing.*;
 
 //The Display is the region in the window where drawing occurs.
@@ -17,6 +18,15 @@ public class Display extends JComponent implements
   }
 
   private Image pac;  //image to draw
+  private Ghost ghost1;
+  private Image ghost1Img;
+  private Ghost ghost2;
+  private Image ghost2Img;
+  private Ghost ghost3;
+  private Image ghost3Img;
+  private Ghost ghost4;
+  private Image ghost4Img;
+  private ArrayList<Ghost> ghosts;
   private int imageX;  //position of left edge of image
   private int imageY;  //position of top edge of image
   private String direction;
@@ -45,6 +55,35 @@ public class Display extends JComponent implements
     if (url == null)
       throw new RuntimeException("Unable to load:  " + fileName);
     pac = new ImageIcon(url).getImage();
+
+    fileName = "Pac.png"; //replace with ghost image later
+    imageFile = fileName;
+    url = getClass().getResource(fileName);
+    if (url == null)
+      throw new RuntimeException("Unable to load:  " + fileName);
+    ghost1Img = new ImageIcon(url).getImage();
+
+    fileName = "Pac.png"; //replace with ghost image later
+    imageFile = fileName;
+    url = getClass().getResource(fileName);
+    if (url == null)
+      throw new RuntimeException("Unable to load:  " + fileName);
+    ghost2Img = new ImageIcon(url).getImage();
+
+    fileName = "Pac.png"; //replace with ghost image later
+    imageFile = fileName;
+    url = getClass().getResource(fileName);
+    if (url == null)
+      throw new RuntimeException("Unable to load:  " + fileName);
+    ghost3Img = new ImageIcon(url).getImage();
+
+    fileName = "Pac.png"; //replace with ghost image later
+    imageFile = fileName;
+    url = getClass().getResource(fileName);
+    if (url == null)
+      throw new RuntimeException("Unable to load:  " + fileName);
+    ghost4Img = new ImageIcon(url).getImage();
+
 
     displayWidth = 1250;
     displayHeight = 800;
@@ -94,6 +133,17 @@ public class Display extends JComponent implements
     frame.getContentPane().add(this);  //add drawing region to window
     frame.pack();  //adjust window size to fit drawing region
     frame.setVisible(true);  //show window
+
+    ghosts = new ArrayList<Ghost>();
+    //add ghost to list and initialize ghosts
+    ghost1 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+115);
+    ghost2 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+175);
+    ghost3 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+115);
+    ghost4 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+175);
+    ghosts.add(ghost1);
+    ghosts.add(ghost2);
+    ghosts.add(ghost3);
+    ghosts.add(ghost4);
   }
 
   //called automatically when Java needs to draw the Display
@@ -104,8 +154,12 @@ public class Display extends JComponent implements
     //g.fillRect(width/4, height/4, 2*width/4, 2*height/4);
     g.drawImage(maze, 0, 0, null); //DRAWS BUFFERED IMAGE BEFORE PACMAN
     g.drawImage(pac, imageX, imageY, null);  //draw image.gif at (imageX, imageY)
+    g.drawImage(ghost1Img, ghost1.getX(), ghost1.getY(), null);
+    g.drawImage(ghost2Img, ghost2.getX(), ghost2.getY(), null);
+    g.drawImage(ghost3Img, ghost3.getX(), ghost3.getY(), null);
+    g.drawImage(ghost4Img, ghost4.getX(), ghost4.getY(), null);
   }
-  
+
   //need for keyboard input
   public void keyPressed(KeyEvent e)
   {
@@ -278,7 +332,7 @@ public class Display extends JComponent implements
       ghost4.changeLocation();
 
       repaint();  //indicates Display must be redrawn (Java will call paintComponent)
-      try{Thread.sleep(25);} catch(Exception e){}  //give Java 100ms to run paintComponent
+      try{Thread.sleep(25);} catch(Exception e){}  //give Java 25ms to run paintComponent
     }
   }
 }

@@ -1,10 +1,12 @@
 public class Ghost {
     private boolean runAway;
     private int runAwayTimer;
+    private int imageX;
+    private int imageY;
 
-
-    public Ghost(){
-
+    public Ghost(int imageX, int imageY){
+        this.imageX = imageX;
+        this.imageY = imageY;
     }
 
     public void run() {
@@ -18,6 +20,18 @@ public class Ghost {
         }
         else if((int)(Math.random()*100) == 0)
         runAway = true;
+
+    }
+
+    public int getX(){
+        return imageX;
+    }
+
+    public int getY(){
+        return imageY;
+    }
+
+    public void changeLocation(){
 
     }
 }
