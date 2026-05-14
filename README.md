@@ -1,3 +1,4 @@
-# This is the GitHub Repository for
-# Honors Computer Science 2 - Final Project
-# Pac-Men
+# **Pac-Men**
+## This is the GitHub Repository for
+## Honors Computer Science 2 - Final Project
+
