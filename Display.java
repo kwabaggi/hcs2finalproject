@@ -56,7 +56,7 @@ public class Display extends JComponent implements
             throw new RuntimeException("Unable to load:  " + fileName);
         pac = new ImageIcon(url).getImage();
 
-        fileName = "Pac.png"; //replace with ghost image later
+        fileName = "feinbergghost.png"; //replace with ghost image later
         imageFile = fileName;
         url = getClass().getResource(fileName);
         if (url == null)
@@ -141,10 +141,10 @@ public class Display extends JComponent implements
 
         ghosts = new ArrayList<Ghost>();
         //add ghost to list and initialize ghosts
-        ghost1 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+115);
-        ghost2 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+175);
-        ghost3 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+115);
-        ghost4 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+175);
+        ghost1 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+115, this);
+        ghost2 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+175, this);
+        ghost3 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+115, this);
+        ghost4 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+175, this);
         ghosts.add(ghost1);
         ghosts.add(ghost2);
         ghosts.add(ghost3);
@@ -324,8 +324,8 @@ public class Display extends JComponent implements
             //check if Ghost is close enough to pac
             for(Ghost ghost : ghosts){
                 double dist = Math.sqrt(Math.pow((double)ghost.getX()-imageX, 2)+Math.pow((double)ghost.getY()-imageY, 2));
-                System.out.println(dist);
-                if(dist < 25){ //distance formula
+                //System.out.println(dist);
+                if(dist < 50){ //distance formula
                     return;
                 }
             }
@@ -339,5 +339,13 @@ public class Display extends JComponent implements
             repaint();  //indicates Display must be redrawn (Java will call paintComponent)
             try{Thread.sleep(25);} catch(Exception e){}  //give Java 25ms to run paintComponent
         }
+    }
+
+    public int getDisplayWidth(){
+        return displayWidth;
+    }
+
+    public int getDisplayHeight(){
+        return displayHeight;
     }
 }
