@@ -40,12 +40,14 @@ public class Display extends JComponent implements
     private int imageHeight;
     private BufferedImage maze;
     private JFrame frame;
+    private Graphics g;
+    private int openerTimer;
 
     public Display()
     {
 
-        imageX = 200;
-        imageY = 200;
+        imageX = 400;
+        imageY = 420;
 
         isOpen = true;
         justChangedDir = false;
@@ -64,7 +66,7 @@ public class Display extends JComponent implements
             throw new RuntimeException("Unable to load:  " + fileName);
         ghost1Img = new ImageIcon(url).getImage();
 
-        fileName = "Pac.png"; //replace with ghost image later
+        fileName = "olexioghost.png"; //replace with ghost image later
         url = getClass().getResource(fileName);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
@@ -86,7 +88,7 @@ public class Display extends JComponent implements
         displayWidth = 1250;
         displayHeight = 800;
         maze = new BufferedImage(displayWidth, displayHeight, BufferedImage.TYPE_INT_RGB);
-        Graphics g = maze.getGraphics();
+        g = maze.getGraphics();
 
         g.setColor(Color.BLACK);  //set pen color to black
         g.fillRect(0, 0, displayWidth, displayHeight);  //fill with black rectangle
@@ -110,7 +112,43 @@ public class Display extends JComponent implements
         g.fillRect(150,550,75,100);
         g.fillRect(225,275,175,10);
         g.fillRect(1100,340,150,10);
-        g.fillOval(50,50,25,25);
+
+        g.setColor(Color.WHITE);
+        g.fillOval(60,50,25,25);
+        g.fillOval(60,100,25,25);
+        g.fillOval(60,150,25,25);
+        g.fillOval(60,200,25,25);
+        g.fillOval(60,250,25,25);
+        g.fillOval(60,300,25,25);
+        g.fillOval(60,350,25,25);
+        g.fillOval(60,400,25,25);
+        g.fillOval(60,450,25,25);
+        g.fillOval(110,475,25,25);
+        g.fillOval(160,475,25,25);
+        g.fillOval(210,475,25,25);
+        g.fillOval(260,475,25,25);
+        g.fillOval(310,475,25,25);
+        g.fillOval(310,475,25,25);
+        g.fillOval(310,510,25,25);
+        g.fillOval(310,560,25,25);
+        g.fillOval(310,610,25,25);
+        g.fillOval(310,660,25,25);
+        g.fillOval(310,710,25,25);
+        g.fillOval(260,710,25,25);
+        g.fillOval(210,710,25,25);
+        g.fillOval(160,710,25,25);
+        g.fillOval(110,710,25,25);
+
+        g.fillOval(60,500,25,25);
+        g.fillOval(60,550,25,25);
+        g.fillOval(60,600,25,25);
+        g.fillOval(60,650,25,25);
+        g.fillOval(60,700,25,25);
+
+
+
+
+        g.setColor(Color.BLUE);
         g.fillRect(displayWidth/2-(150/2),(displayHeight/2-(150/2))+80,150,10); //GHOST SQUARE
         g.fillRect(displayWidth/2-(150/2),(displayHeight/2-(150/2))+80,10,150);
         g.fillRect(displayWidth/2+(150/2),(displayHeight/2-(150/2))+80,10,150);
@@ -141,7 +179,7 @@ public class Display extends JComponent implements
         ghosts = new ArrayList<Ghost>();
         //add ghost to list and initialize ghosts
         ghost1 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+115, this, 1);
-        ghost2 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+175, this, 2);
+        ghost2 = new Ghost(displayWidth/2-(150/2)+25, displayHeight/2-(150/2)+170, this, 2);
         ghost3 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+115, this, 3);
         ghost4 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+175, this, 4);
         ghosts.add(ghost1);
@@ -149,7 +187,27 @@ public class Display extends JComponent implements
         ghosts.add(ghost3);
         ghosts.add(ghost4);
 
-        JOptionPane.showMessageDialog(null, "Pac-Men!");
+//        JFrame msg = new JFrame("Introduction");
+//        JLabel text = new JLabel("Welcome to Pac-Men\nWASD to move");
+//        JButton button = new JButton("Begin Game");
+//        JPanel panel = new JPanel();
+//        msg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        panel.add(text);
+//        panel.add(button);
+//        msg.add(panel);
+//        msg.setPreferredSize(new Dimension(1000, 1000));
+//        msg.pack();
+//        msg.setVisible(true);
+        JPanel pane = new JPanel();
+        JLabel label = new JLabel("<html><font color='green'>Welcome to Pac-Men<br>WASD to move<br>Collect coins for high score<br>Score is at the top");
+        label.setFont(new Font("Arial", Font.BOLD, 25));
+        pane.add(label);
+        pane.setPreferredSize(new Dimension(400, 200));
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.setPreferredSize(new Dimension(200, 200));
+        JOptionPane.showMessageDialog(frame, pane, "Introduction", JOptionPane.INFORMATION_MESSAGE);
+
+
     }
 
     //called automatically when Java needs to draw the Display
@@ -377,6 +435,14 @@ public class Display extends JComponent implements
             ghost2.run();
             ghost3.run();
             ghost4.run();
+
+            if(openerTimer > 500) {
+                g.clearRect(displayWidth / 2 - (150 / 2), (displayHeight / 2 - (150 / 2)) + 80, 150, 10); //GHOST SQUARE
+                g.clearRect(displayWidth / 2 - (150 / 2), (displayHeight / 2 - (150 / 2)) + 80, 10, 150);
+                g.clearRect(displayWidth / 2 + (150 / 2), (displayHeight / 2 - (150 / 2)) + 80, 10, 150);
+                g.clearRect(displayWidth / 2 - (150 / 2), (displayHeight / 2 + (150 / 2)) + 80, 160, 10);
+            }
+            else openerTimer ++;
 
             repaint();  //indicates Display must be redrawn (Java will call paintComponent)
             try{Thread.sleep(25);} catch(Exception e){}  //give Java 25ms to run paintComponent
