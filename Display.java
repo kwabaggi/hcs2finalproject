@@ -39,9 +39,12 @@ public class Display extends JComponent implements
     private int imageWidth;
     private int imageHeight;
     private BufferedImage maze;
+    private JFrame frame;
 
     public Display()
     {
+        JOptionPane.showMessageDialog(null, "Pac-Men!");
+
         imageX = 200;
         imageY = 200;
 
@@ -121,7 +124,7 @@ public class Display extends JComponent implements
         g.fillRect(0, 780, 1250, 20); //bottom edge
         g.fillRect(1230, 0, 20, 800); //right edge
 
-        JFrame frame = new JFrame();  //create window
+        frame = new JFrame();  //create window
         frame.setTitle("Title");  //set title of window
         imageWidth = pac.getWidth(frame);
         imageHeight = pac.getHeight(frame);
@@ -141,10 +144,10 @@ public class Display extends JComponent implements
 
         ghosts = new ArrayList<Ghost>();
         //add ghost to list and initialize ghosts
-        ghost1 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+115, this);
-        ghost2 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+175, this);
-        ghost3 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+115, this);
-        ghost4 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+175, this);
+        ghost1 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+115, this, 1);
+        ghost2 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+175, this, 2);
+        ghost3 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+115, this, 3);
+        ghost4 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+175, this, 4);
         ghosts.add(ghost1);
         ghosts.add(ghost2);
         ghosts.add(ghost3);
@@ -234,6 +237,41 @@ public class Display extends JComponent implements
         else if (direction.equals("down")) {
             for(int i = imageX-5; i < imageX + imageWidth+5; i++){
                 Color topSide = new Color(maze.getRGB(i, imageY + imageHeight + 6));
+                if(topSide.equals(Color.BLUE))
+                    bool = false;
+            }
+        }
+        if (bool)
+            return true;
+        else return false;
+    }
+
+    public boolean ghostNotOnWall(String direction, Ghost ghost) { //check a little outside pac and see if it overlaps with wall
+        boolean bool = true;
+        if (direction.equals("left")) {
+            for(int i = ghost.getY()-5; i < ghost.getY() + ghost.getImageHeight()+5; i++){
+                Color leftSide = new Color(maze.getRGB(ghost.getX()-6, i));
+                if(leftSide.equals(Color.BLUE))
+                    bool = false;
+            }
+        }
+        else if (direction.equals("right")) {
+            for(int i = ghost.getY()-5; i < ghost.getY() + ghost.getImageHeight()+5; i++){
+                Color rightSide = new Color(maze.getRGB(ghost.getX() + ghost.getImageWidth() + 6, i));
+                if(rightSide.equals(Color.BLUE))
+                    bool = false;
+            }
+        }
+        else if (direction.equals("up")) {
+            for(int i = ghost.getX()-5; i < ghost.getX() + ghost.getImageWidth()+5; i++){
+                Color topSide = new Color(maze.getRGB(i, ghost.getY() - 6));
+                if(topSide.equals(Color.BLUE))
+                    bool = false;
+            }
+        }
+        else if (direction.equals("down")) {
+            for(int i = ghost.getX()-5; i < ghost.getX() + ghost.getImageWidth()+5; i++){
+                Color topSide = new Color(maze.getRGB(i, ghost.getY() + ghost.getImageHeight() + 6));
                 if(topSide.equals(Color.BLUE))
                     bool = false;
             }
@@ -336,6 +374,12 @@ public class Display extends JComponent implements
             ghost3.changeLocation();
             ghost4.changeLocation();
 
+            //run the ghost for vulnerability
+            ghost1.run();
+            //ghost2.run();
+            //ghost3.run();
+            //ghost4.run();
+
             repaint();  //indicates Display must be redrawn (Java will call paintComponent)
             try{Thread.sleep(25);} catch(Exception e){}  //give Java 25ms to run paintComponent
         }
@@ -347,5 +391,37 @@ public class Display extends JComponent implements
 
     public int getDisplayHeight(){
         return displayHeight;
+    }
+
+    public JFrame getFrame(){
+        return frame;
+    }
+
+    public Image getGhostImg(int type){
+        if(type == 1)
+            return ghost1Img;
+        else if(type == 2)
+            return ghost2Img;
+        else if(type == 3)
+            return ghost3Img;
+        else if(type == 4)
+            return ghost4Img;
+        else return null;
+    }
+
+    public void changeGhostImage(int type, String fileName){
+        imageFile = fileName;
+        URL url = getClass().getResource(fileName);
+        if(url == null)
+            throw new RuntimeException("Unable to load:  " + fileName);
+        Image img = new ImageIcon(url).getImage();
+        if(type == 1)
+            ghost1Img = img;
+        else if(type == 2)
+            ghost2Img = img;
+        else if(type == 3)
+            ghost3Img = img;
+        else if(type == 4)
+            ghost4Img = img;
     }
 }

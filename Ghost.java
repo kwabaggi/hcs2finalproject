@@ -6,25 +6,40 @@ public class Ghost {
     private Display display;
     private int direction;
     private int directionCounter;
+    private int imageWidth;
+    private int imageHeight;
+    private int type;
 
-    public Ghost(int imageX, int imageY, Display disp){
+    public Ghost(int imageX, int imageY, Display disp, int type){
         this.imageX = imageX;
         this.imageY = imageY;
         display = disp;
+        imageWidth = disp.getGhostImg(type).getWidth(disp.getFrame());
+        imageHeight = disp.getGhostImg(type).getHeight(disp.getFrame());
+        this.type = type;
     }
 
     public void run() {
         if (runAway) {
-            if (runAwayTimer < 480)
+            if (runAwayTimer < 10)
             runAwayTimer ++;
             else{
                 runAwayTimer = 0;
                 runAway = false;
+                display.changeGhostImage(type, getRegular(type));
             }
         }
-        else if((int)(Math.random()*100) == 0)
-        runAway = true;
+        else if((int)(Math.random()*10) == 0) {
+            runAway = true;
+            //display.changeGhostImage(type, "vulnerableghost.png");
+        }
 
+    }
+
+    public String getRegular(int type){
+        if(type == 1)
+            return "feinbergghost.png";
+        else return "Pac.png";
     }
 
     public int getX(){
@@ -43,27 +58,35 @@ public class Ghost {
         else directionCounter ++;
         if(direction == 0){
             for(int i = 0; i < 6; i ++){
-                if(imageX > 0 && display.notOnWall("left"))
+                if(imageX > 0 && display.ghostNotOnWall("left", this))
                     imageX --;
             }
         }
         else if(direction == 1){
             for(int i = 0; i < 6; i ++){
-                if(imageX < display.getDisplayWidth()-60 && display.notOnWall("right"))
+                if(imageX < display.getDisplayWidth()-60 && display.ghostNotOnWall("right", this))
                     imageX ++;
             }
         }
         else if(direction == 2){
             for(int i = 0; i < 6; i ++){
-                if(imageY > 0 && display.notOnWall("up"))
+                if(imageY > 0 && display.ghostNotOnWall("up", this))
                     imageY --;
             }
         }
         else if(direction == 3){
             for(int i = 0; i < 6; i ++){
-                if(imageY < display.getDisplayHeight()-55 && display.notOnWall("down"))
+                if(imageY < display.getDisplayHeight()-55 && display.ghostNotOnWall("down", this))
                     imageY ++;
             }
         }
+    }
+
+    public int getImageWidth(){
+        return imageWidth;
+    }
+
+    public int getImageHeight(){
+        return imageHeight;
     }
 }
