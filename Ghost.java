@@ -21,7 +21,7 @@ public class Ghost {
 
     public void run() {
         if (runAway) {
-            if (runAwayTimer < 10)
+            if (runAwayTimer < 240)
             runAwayTimer ++;
             else{
                 runAwayTimer = 0;
@@ -29,9 +29,9 @@ public class Ghost {
                 display.changeGhostImage(type, getRegular(type));
             }
         }
-        else if((int)(Math.random()*10) == 0) {
+        else if((int)(Math.random()*750) == 0) {
             runAway = true;
-            //display.changeGhostImage(type, "vulnerableghost.png");
+            display.changeGhostImage(type, "vulnerableghost.png");
         }
 
     }
@@ -39,7 +39,7 @@ public class Ghost {
     public String getRegular(int type){
         if(type == 1)
             return "feinbergghost.png";
-        else return "Pac.png";
+        else return "feinbergghost.png"; //change to other images once get teacher approval
     }
 
     public int getX(){

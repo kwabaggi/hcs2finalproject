@@ -43,7 +43,6 @@ public class Display extends JComponent implements
 
     public Display()
     {
-        JOptionPane.showMessageDialog(null, "Pac-Men!");
 
         imageX = 200;
         imageY = 200;
@@ -60,28 +59,24 @@ public class Display extends JComponent implements
         pac = new ImageIcon(url).getImage();
 
         fileName = "feinbergghost.png"; //replace with ghost image later
-        imageFile = fileName;
         url = getClass().getResource(fileName);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
         ghost1Img = new ImageIcon(url).getImage();
 
         fileName = "Pac.png"; //replace with ghost image later
-        imageFile = fileName;
         url = getClass().getResource(fileName);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
         ghost2Img = new ImageIcon(url).getImage();
 
         fileName = "Pac.png"; //replace with ghost image later
-        imageFile = fileName;
         url = getClass().getResource(fileName);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
         ghost3Img = new ImageIcon(url).getImage();
 
         fileName = "Pac.png"; //replace with ghost image later
-        imageFile = fileName;
         url = getClass().getResource(fileName);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
@@ -115,6 +110,7 @@ public class Display extends JComponent implements
         g.fillRect(150,550,75,100);
         g.fillRect(225,275,175,10);
         g.fillRect(1100,340,150,10);
+        g.fillOval(50,50,25,25);
         g.fillRect(displayWidth/2-(150/2),(displayHeight/2-(150/2))+80,150,10); //GHOST SQUARE
         g.fillRect(displayWidth/2-(150/2),(displayHeight/2-(150/2))+80,10,150);
         g.fillRect(displayWidth/2+(150/2),(displayHeight/2-(150/2))+80,10,150);
@@ -152,6 +148,8 @@ public class Display extends JComponent implements
         ghosts.add(ghost2);
         ghosts.add(ghost3);
         ghosts.add(ghost4);
+
+        JOptionPane.showMessageDialog(null, "Pac-Men!");
     }
 
     //called automatically when Java needs to draw the Display
@@ -376,9 +374,9 @@ public class Display extends JComponent implements
 
             //run the ghost for vulnerability
             ghost1.run();
-            //ghost2.run();
-            //ghost3.run();
-            //ghost4.run();
+            ghost2.run();
+            ghost3.run();
+            ghost4.run();
 
             repaint();  //indicates Display must be redrawn (Java will call paintComponent)
             try{Thread.sleep(25);} catch(Exception e){}  //give Java 25ms to run paintComponent
@@ -410,7 +408,6 @@ public class Display extends JComponent implements
     }
 
     public void changeGhostImage(int type, String fileName){
-        imageFile = fileName;
         URL url = getClass().getResource(fileName);
         if(url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
