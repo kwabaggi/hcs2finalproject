@@ -39,9 +39,11 @@ public class Ghost {
     public String getRegular(int type){
         if(type == 1)
             return "feinbergghost.png";
-        else if (type == 2)
+        else if(type == 2)
             return "olexioghost.png";
-        else return "feinbergghost.png";
+        else if(type == 3)
+            return "dennettghost.png";
+        else return "bologneseghost.jpg";
     }
 
     public int getX(){
@@ -59,25 +61,25 @@ public class Ghost {
         }
         else directionCounter ++;
         if(direction == 0){
-            for(int i = 0; i < 9; i ++){
+            for(int i = 0; i < 11; i ++){
                 if(imageX > 0 && display.ghostNotOnWall("left", this))
                     imageX --;
             }
         }
         else if(direction == 1){
-            for(int i = 0; i < 9; i ++){
+            for(int i = 0; i < 11; i ++){
                 if(imageX < display.getDisplayWidth()-60 && display.ghostNotOnWall("right", this))
                     imageX ++;
             }
         }
         else if(direction == 2){
-            for(int i = 0; i < 9; i ++){
+            for(int i = 0; i < 11; i ++){
                 if(imageY > 0 && display.ghostNotOnWall("up", this))
                     imageY --;
             }
         }
         else if(direction == 3){
-            for(int i = 0; i < 9; i ++){
+            for(int i = 0; i < 11; i ++){
                 if(imageY < display.getDisplayHeight()-55 && display.ghostNotOnWall("down", this))
                     imageY ++;
             }

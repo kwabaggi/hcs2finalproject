@@ -60,25 +60,25 @@ public class Display extends JComponent implements
             throw new RuntimeException("Unable to load:  " + fileName);
         pac = new ImageIcon(url).getImage();
 
-        fileName = "feinbergghost.png"; //replace with ghost image later
+        fileName = "feinbergghost.png";
         url = getClass().getResource(fileName);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
         ghost1Img = new ImageIcon(url).getImage();
 
-        fileName = "olexioghost.png"; //replace with ghost image later
+        fileName = "olexioghost.png";
         url = getClass().getResource(fileName);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
         ghost2Img = new ImageIcon(url).getImage();
 
-        fileName = "Pac.png"; //replace with ghost image later
+        fileName = "dennettghost.png";
         url = getClass().getResource(fileName);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
         ghost3Img = new ImageIcon(url).getImage();
 
-        fileName = "Pac.png"; //replace with ghost image later
+        fileName = "bologneseghost.jpg";
         url = getClass().getResource(fileName);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + fileName);
@@ -436,7 +436,7 @@ public class Display extends JComponent implements
             ghost3.run();
             ghost4.run();
 
-            if(openerTimer > 500) {
+            if(openerTimer > 150) {
                 g.clearRect(displayWidth / 2 - (150 / 2), (displayHeight / 2 - (150 / 2)) + 80, 150, 10); //GHOST SQUARE
                 g.clearRect(displayWidth / 2 - (150 / 2), (displayHeight / 2 - (150 / 2)) + 80, 10, 150);
                 g.clearRect(displayWidth / 2 + (150 / 2), (displayHeight / 2 - (150 / 2)) + 80, 10, 150);
