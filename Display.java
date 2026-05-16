@@ -4,8 +4,9 @@ import java.awt.image.BufferedImage;
 import java.net.*;
 import java.util.*;
 import javax.swing.*;
+import javax.sound.sampled.*;
+import java.io.File;
 
-//The Display is the region in the window where drawing occurs.
 public class Display extends JComponent implements
         KeyListener,  //need for keyboard input
         MouseListener  //need for mouse input
@@ -53,6 +54,8 @@ public class Display extends JComponent implements
     private int score;
     private final long startTime;
     private double gameTime;
+    private Clip c;
+    private int soundTimer;
 
     public Display()
     {
@@ -235,6 +238,11 @@ public class Display extends JComponent implements
 //        msg.setPreferredSize(new Dimension(1000, 1000));
 //        msg.pack();
 //        msg.setVisible(true);
+
+        //play intro audio
+        soundTimer = 21;
+        playAudio("pacman_beginning.wav");
+
         JPanel pane = new JPanel();
         JLabel label = new JLabel("<html><font color = '#EBAE15'>Pac-Men<font color = 'black'> by Jude S. and Ethan L.<br><br>WASD to move<br>Collect coins for high score<br><font color='#15A7EB'>Score is at the top<br><font color = '#D915EB'>You get more points the faster you collect the orbs" +
                 "<br><font color = 'black'>Press ESC to restart");
@@ -417,20 +425,17 @@ public class Display extends JComponent implements
             if (isDone) {
                 String[] args = new String[0];
                 main(args);
-//                frame.getContentPane().removeAll();
-//                resetFrame();
-//                frame.repaint();
-//                this.run();
                 break;
             } else {
                 gameTime = (double) (System.currentTimeMillis() - startTime) / 1000;
 
                 //check if Ghost is close enough to pac
                 for (Ghost ghost : ghosts) {
-                    double dist = distance(ghost.getX(), ghost.getY(), pacCenterX, pacCenterY);
+                    double dist = distance(ghost.getCenterX(), ghost.getCenterY(), pacCenterX, pacCenterY);
                     //System.out.println(dist);
                     if (!ghost.isRunAway() && dist < 30) {
                         JPanel finalPanel = new JPanel();
+                        playAudio("pacman_death.wav");
                         JLabel label = new JLabel("<html>You died. Your score is: <font color = '#A11FC2'><b>" + score + "</b></html>");
                         JLabel second = new JLabel("<html><font color = '#2BAD7D'><br>Thanks for playing Pac-Men! \uD83D\uDE01</html>");;
                         label.setFont(new Font("Arial", Font.BOLD, 25));
@@ -447,7 +452,7 @@ public class Display extends JComponent implements
                         main(args);
                         return;
                     }
-                    else if(ghost.isRunAway() && dist < 30){
+                    else if(ghost.isRunAway() && dist < 30 && ghost.getValidToKilled()){
                         //g.clearRect(ghost.getX(), ghost.getY(), ghost.getImageWidth(), ghost.getImageHeight());
                         ghost.setKill();
                         score += pointFunction("ghost");
@@ -523,6 +528,7 @@ public class Display extends JComponent implements
                     for(int y = pacCenterY - 5; y < pacCenterY + 5; y++) {
                         Color col = new Color(maze.getRGB(x, y));
                         if (col.equals(Color.WHITE)) {
+                                playAudio("pacman_chomp.wav");
                             Orb closest = orbs.get(0);
                             double minDist = distance(closest.getX(), closest.getY(), pacCenterX, pacCenterY);
                             for (Orb dot : orbs) {
@@ -539,6 +545,8 @@ public class Display extends JComponent implements
                         }
                     }
             }
+                if(soundTimer <= 20)
+                    soundTimer ++;
                 repaint();  //indicates Display must be redrawn (Java will call paintComponent)
                 try {
                     Thread.sleep(25);
@@ -621,6 +629,23 @@ public class Display extends JComponent implements
             url = getClass().getResource(ghost4File);
             img = new ImageIcon(url).getImage();
             ghost4Img = img;
+        }
+    }
+
+    public void playAudio(String file) {
+        if (soundTimer > 15) {
+            soundTimer = 0;
+            File sound = new File(file);
+            if (sound.exists()) {
+                try {
+                    AudioInputStream input = AudioSystem.getAudioInputStream(sound);
+                    c = AudioSystem.getClip();
+                    c.open(input);
+                    c.start();
+                } catch (Exception a) {
+                    System.out.println(a);
+                }
+            } else throw new RuntimeException("Unable to load " + file);
         }
     }
 }

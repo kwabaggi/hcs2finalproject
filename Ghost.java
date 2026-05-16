@@ -13,6 +13,9 @@ public class Ghost {
     private int type;
     private int killTimer;
     private boolean isKilled;
+    private boolean validToKilled;
+    private int centerX;
+    private int centerY;
 
     public Ghost(int imageX, int imageY, Display disp, int type){
         this.imageX = imageX;
@@ -23,6 +26,9 @@ public class Ghost {
         imageWidth = disp.getGhostImg(type).getWidth(disp.getFrame());
         imageHeight = disp.getGhostImg(type).getHeight(disp.getFrame());
         this.type = type;
+        centerX = imageX + imageWidth/2;
+        centerY = imageY + imageHeight/2;
+        validToKilled = true;
     }
 
     public void run() {
@@ -97,6 +103,8 @@ public class Ghost {
                         imageY++;
                 }
             }
+            centerX = imageX + imageWidth/2;
+            centerY = imageY + imageHeight/2;
         }
     }
 
@@ -131,5 +139,19 @@ public class Ghost {
         imageX = spawnX;
         imageY = spawnY;
         display.changeGhostImage(type, "redx.png");
+        display.playAudio("pacman_eatghost.wav");
+        validToKilled = false;
+    }
+
+    public boolean getValidToKilled(){
+        return validToKilled;
+    }
+
+    public int getCenterX(){
+        return centerX;
+    }
+
+    public int getCenterY(){
+        return centerY;
     }
 }
