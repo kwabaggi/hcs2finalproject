@@ -3,16 +3,22 @@ public class Ghost {
     private int runAwayTimer;
     private int imageX;
     private int imageY;
+    private int spawnX;
+    private int spawnY;
     private Display display;
     private int direction;
     private int directionCounter;
     private int imageWidth;
     private int imageHeight;
     private int type;
+    private int killTimer;
+    private boolean isKilled;
 
     public Ghost(int imageX, int imageY, Display disp, int type){
         this.imageX = imageX;
         this.imageY = imageY;
+        spawnX = imageX;
+        spawnY = imageY;
         display = disp;
         imageWidth = disp.getGhostImg(type).getWidth(disp.getFrame());
         imageHeight = disp.getGhostImg(type).getHeight(disp.getFrame());
@@ -20,7 +26,7 @@ public class Ghost {
     }
 
     public void run() {
-        if (runAway) {
+        if (runAway && !isKilled) {
             if (runAwayTimer < 240)
             runAwayTimer ++;
             else{
@@ -29,7 +35,17 @@ public class Ghost {
                 display.changeGhostImage(type, getRegular(type));
             }
         }
-        else if((int)(Math.random()*750) == 0) {
+        else if(isKilled && runAway){
+            if(killTimer < 140)
+                killTimer ++;
+            else{
+                killTimer = 0;
+                isKilled = false;
+                runAway = false;
+                display.respawnGhost(type, this);
+            }
+        }
+        else if((int)(Math.random()*1000) == 0) {
             runAway = true;
             display.changeGhostImage(type, "vulnerableghost.png");
         }
@@ -54,34 +70,32 @@ public class Ghost {
         return imageY;
     }
 
-    public void changeLocation(){
-        if(directionCounter >= 10) {
-            direction = (int) (Math.random() * 4);
-            directionCounter = 0;
-        }
-        else directionCounter ++;
-        if(direction == 0){
-            for(int i = 0; i < 11; i ++){
-                if(imageX > 0 && display.ghostNotOnWall("left", this))
-                    imageX --;
-            }
-        }
-        else if(direction == 1){
-            for(int i = 0; i < 11; i ++){
-                if(imageX < display.getDisplayWidth()-60 && display.ghostNotOnWall("right", this))
-                    imageX ++;
-            }
-        }
-        else if(direction == 2){
-            for(int i = 0; i < 11; i ++){
-                if(imageY > 0 && display.ghostNotOnWall("up", this))
-                    imageY --;
-            }
-        }
-        else if(direction == 3){
-            for(int i = 0; i < 11; i ++){
-                if(imageY < display.getDisplayHeight()-55 && display.ghostNotOnWall("down", this))
-                    imageY ++;
+    public void changeLocation() {
+        if (!isKilled) {
+            if (directionCounter >= 10) {
+                direction = (int) (Math.random() * 4);
+                directionCounter = 0;
+            } else directionCounter++;
+            if (direction == 0) {
+                for (int i = 0; i < 11; i++) {
+                    if (imageX > 0 && display.ghostNotOnWall("left", this))
+                        imageX--;
+                }
+            } else if (direction == 1) {
+                for (int i = 0; i < 11; i++) {
+                    if (imageX < display.getDisplayWidth() - 60 && display.ghostNotOnWall("right", this))
+                        imageX++;
+                }
+            } else if (direction == 2) {
+                for (int i = 0; i < 11; i++) {
+                    if (imageY > 0 && display.ghostNotOnWall("up", this))
+                        imageY--;
+                }
+            } else if (direction == 3) {
+                for (int i = 0; i < 11; i++) {
+                    if (imageY < display.getDisplayHeight() - 55 && display.ghostNotOnWall("down", this))
+                        imageY++;
+                }
             }
         }
     }
@@ -101,5 +115,21 @@ public class Ghost {
 
     public boolean isRunAway(){
         return runAway;
+    }
+
+    public int getSpawnX(){
+        return spawnX;
+    }
+
+    public int getSpawnY(){
+        return spawnY;
+    }
+
+    public void setKill(){
+        isKilled = true;
+        runAway = true;
+        imageX = spawnX;
+        imageY = spawnY;
+        display.changeGhostImage(type, "redx.png");
     }
 }

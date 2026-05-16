@@ -33,16 +33,26 @@ public class Display extends JComponent implements
     private boolean isOpen;
     private int timer;
     private String imageFile;
+    private final String ghost1File;
+    private final String ghost2File;
+    private final String ghost3File;
+    private final String ghost4File;
     private boolean justChangedDir;
-    private int displayWidth;
-    private int displayHeight;
-    private int imageWidth;
-    private int imageHeight;
+    private final int displayWidth;
+    private final int displayHeight;
+    private final int imageWidth;
+    private final int imageHeight;
     private BufferedImage maze;
     private JFrame frame;
     private Graphics g;
     private int openerTimer;
     private boolean isDone;
+    private int pacCenterX;
+    private int pacCenterY;
+    private ArrayList<Orb> orbs;
+    private int score;
+    private final long startTime;
+    private double gameTime;
 
     public Display()
     {
@@ -61,30 +71,29 @@ public class Display extends JComponent implements
             throw new RuntimeException("Unable to load:  " + fileName);
         pac = new ImageIcon(url).getImage();
 
-        fileName = "feinbergghost.png";
-        url = getClass().getResource(fileName);
+        ghost1File = "feinbergghost.png";
+        url = getClass().getResource(ghost1File);
         if (url == null)
-            throw new RuntimeException("Unable to load:  " + fileName);
+            throw new RuntimeException("Unable to load:  " + ghost1File);
         ghost1Img = new ImageIcon(url).getImage();
 
-        fileName = "olexioghost.png";
-        url = getClass().getResource(fileName);
+        ghost2File = "olexioghost.png";
+        url = getClass().getResource(ghost2File);
         if (url == null)
-            throw new RuntimeException("Unable to load:  " + fileName);
+            throw new RuntimeException("Unable to load:  " + ghost2File);
         ghost2Img = new ImageIcon(url).getImage();
 
-        fileName = "dennettghost.png";
-        url = getClass().getResource(fileName);
+        ghost3File = "dennettghost.png";
+        url = getClass().getResource(ghost3File);
         if (url == null)
-            throw new RuntimeException("Unable to load:  " + fileName);
+            throw new RuntimeException("Unable to load:  " + ghost3File);
         ghost3Img = new ImageIcon(url).getImage();
 
-        fileName = "bologneseghost.jpg";
-        url = getClass().getResource(fileName);
+        ghost4File = "bologneseghost.jpg";
+        url = getClass().getResource(ghost4File);
         if (url == null)
-            throw new RuntimeException("Unable to load:  " + fileName);
+            throw new RuntimeException("Unable to load:  " + ghost4File);
         ghost4Img = new ImageIcon(url).getImage();
-
 
         displayWidth = 1250;
         displayHeight = 800;
@@ -114,37 +123,64 @@ public class Display extends JComponent implements
         g.fillRect(225,275,175,10);
         g.fillRect(1100,340,150,10);
 
+        orbs = new ArrayList<Orb>(); //update this arraylist with new orbs
         g.setColor(Color.WHITE);
-        g.fillOval(60,50,25,25);
-        g.fillOval(60,100,25,25);
-        g.fillOval(60,150,25,25);
-        g.fillOval(60,200,25,25);
-        g.fillOval(60,250,25,25);
-        g.fillOval(60,300,25,25);
-        g.fillOval(60,350,25,25);
-        g.fillOval(60,400,25,25);
-        g.fillOval(60,450,25,25);
-        g.fillOval(110,475,25,25);
-        g.fillOval(160,475,25,25);
-        g.fillOval(210,475,25,25);
-        g.fillOval(260,475,25,25);
-        g.fillOval(310,475,25,25);
-        g.fillOval(310,475,25,25);
-        g.fillOval(310,510,25,25);
-        g.fillOval(310,560,25,25);
-        g.fillOval(310,610,25,25);
-        g.fillOval(310,660,25,25);
-        g.fillOval(310,710,25,25);
-        g.fillOval(260,710,25,25);
-        g.fillOval(210,710,25,25);
-        g.fillOval(160,710,25,25);
-        g.fillOval(110,710,25,25);
-
-        g.fillOval(60,500,25,25);
-        g.fillOval(60,550,25,25);
-        g.fillOval(60,600,25,25);
-        g.fillOval(60,650,25,25);
-        g.fillOval(60,700,25,25);
+                g.fillOval(60,50,25,25);
+        orbs.add(new Orb(60, 50));
+                g.fillOval(60,100,25,25);
+        orbs.add(new Orb(60, 100));
+                g.fillOval(60,150,25,25);
+        orbs.add(new Orb(60, 150));
+                g.fillOval(60,200,25,25);
+        orbs.add(new Orb(60, 200));
+                g.fillOval(60,250,25,25);
+        orbs.add(new Orb(60, 250));
+                g.fillOval(60,300,25,25);
+        orbs.add(new Orb(60, 300));
+                g.fillOval(60,350,25,25);
+        orbs.add(new Orb(60, 350));
+                g.fillOval(60,400,25,25);
+        orbs.add(new Orb(60, 400));
+                g.fillOval(60,450,25,25);
+        orbs.add(new Orb(60, 450));
+                g.fillOval(110,475,25,25);
+        orbs.add(new Orb(110, 475));
+                g.fillOval(160,475,25,25);
+        orbs.add(new Orb(160, 475));
+                g.fillOval(210,475,25,25);
+        orbs.add(new Orb(210, 475));
+                g.fillOval(260,475,25,25);
+        orbs.add(new Orb(260, 475));
+                g.fillOval(310,475,25,25);
+        orbs.add(new Orb(310, 475));
+                g.fillOval(310,510,25,25);
+        orbs.add(new Orb(310, 510));
+                g.fillOval(310,560,25,25);
+        orbs.add(new Orb(310, 560));
+                g.fillOval(310,610,25,25);
+        orbs.add(new Orb(310, 610));
+                g.fillOval(310,660,25,25);
+        orbs.add(new Orb(310, 660));
+                g.fillOval(310,710,25,25);
+        orbs.add(new Orb(310, 710));
+                g.fillOval(260,710,25,25);
+        orbs.add(new Orb(260, 710));
+                g.fillOval(210,710,25,25);
+        orbs.add(new Orb(210, 710));
+                g.fillOval(160,710,25,25);
+        orbs.add(new Orb(160, 710));
+                g.fillOval(110,710,25,25);
+        orbs.add(new Orb(110, 710));
+                g.fillOval(60,500,25,25);
+        orbs.add(new Orb(60, 500));
+                g.fillOval(60,550,25,25);
+        orbs.add(new Orb(60, 550));
+                g.fillOval(60,600,25,25);
+        orbs.add(new Orb(60, 600));
+                g.fillOval(60,650,25,25);
+        orbs.add(new Orb(60, 650));
+                g.fillOval(60,700,25,25);
+        orbs.add(new Orb(60, 700));
 
 
 
@@ -160,7 +196,7 @@ public class Display extends JComponent implements
         g.fillRect(1230, 0, 20, 800); //right edge
 
         frame = new JFrame();  //create window
-        frame.setTitle("Title");  //set title of window
+        frame.setTitle("YOUR SCORE WILL SHOW HERE");  //set title of window
         imageWidth = pac.getWidth(frame);
         imageHeight = pac.getHeight(frame);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//closing window will exit program
@@ -200,15 +236,17 @@ public class Display extends JComponent implements
 //        msg.pack();
 //        msg.setVisible(true);
         JPanel pane = new JPanel();
-        JLabel label = new JLabel("<html><font color='green'>Welcome to Pac-Men<br>WASD to move<br>Collect coins for high score<br>Score is at the top");
+        JLabel label = new JLabel("<html><font color = '#EBAE15'>Pac-Men<font color = 'black'> by Jude S. and Ethan L.<br><br>WASD to move<br>Collect coins for high score<br><font color='#15A7EB'>Score is at the top<br><font color = '#D915EB'>You get more points the faster you collect the orbs" +
+                "<br><font color = 'black'>Press ESC to restart");
         label.setFont(new Font("Arial", Font.BOLD, 25));
         pane.add(label);
-        pane.setPreferredSize(new Dimension(400, 200));
+        pane.setPreferredSize(new Dimension(600, 250));
         JOptionPane optionPane = new JOptionPane();
         optionPane.setPreferredSize(new Dimension(200, 200));
+        UIManager.put("OptionPane.okButtonText", "Begin Game");
         JOptionPane.showMessageDialog(frame, pane, "Introduction", JOptionPane.INFORMATION_MESSAGE);
 
-
+        startTime = System.currentTimeMillis();
     }
 
     //called automatically when Java needs to draw the Display
@@ -385,6 +423,38 @@ public class Display extends JComponent implements
 //                this.run();
                 break;
             } else {
+                gameTime = (double) (System.currentTimeMillis() - startTime) / 1000;
+
+                //check if Ghost is close enough to pac
+                for (Ghost ghost : ghosts) {
+                    double dist = distance(ghost.getX(), ghost.getY(), pacCenterX, pacCenterY);
+                    //System.out.println(dist);
+                    if (!ghost.isRunAway() && dist < 30) {
+                        JPanel finalPanel = new JPanel();
+                        JLabel label = new JLabel("<html>You died. Your score is: <font color = '#A11FC2'><b>" + score + "</b></html>");
+                        JLabel second = new JLabel("<html><font color = '#2BAD7D'><br>Thanks for playing Pac-Men! \uD83D\uDE01</html>");;
+                        label.setFont(new Font("Arial", Font.BOLD, 25));
+                        second.setFont(new Font("Arial", Font.BOLD, 25));
+                        finalPanel.add(label);
+                        finalPanel.add(second);
+                        finalPanel.setLayout(new BoxLayout(finalPanel, BoxLayout.Y_AXIS));
+                        finalPanel.setPreferredSize(new Dimension(350, 175));
+                        JOptionPane optionPane = new JOptionPane();
+                        optionPane.setPreferredSize(new Dimension(350, 0));
+                        UIManager.put("OptionPane.okButtonText", "Close");
+                        JOptionPane.showMessageDialog(frame, finalPanel, "Final Score", JOptionPane.INFORMATION_MESSAGE);
+                        String[] args = new String[0];
+                        main(args);
+                        return;
+                    }
+                    else if(ghost.isRunAway() && dist < 30){
+                        //g.clearRect(ghost.getX(), ghost.getY(), ghost.getImageWidth(), ghost.getImageHeight());
+                        ghost.setKill();
+                        score += pointFunction("ghost");
+                        frame.setTitle("Score: " + Integer.toString(score));
+                    }
+                }
+
                 if (direction != null) {//move images and update them
                     boolean readyToChange = false;
                     if (timer >= 3) {
@@ -427,14 +497,8 @@ public class Display extends JComponent implements
                     pac = new ImageIcon(url).getImage();
                 }
 
-                //check if Ghost is close enough to pac
-                for (Ghost ghost : ghosts) {
-                    double dist = Math.sqrt(Math.pow((double) ghost.getX() - imageX, 2) + Math.pow((double) ghost.getY() - imageY, 2));
-                    //System.out.println(dist);
-                    if (!ghost.isRunAway() && dist < 50) { //distance formula
-                        return;
-                    }
-                }
+                pacCenterX = imageX + imageWidth / 2;
+                pacCenterY = imageY + imageHeight / 2;
 
                 //change the ghosts' coords
                 ghost1.changeLocation();
@@ -455,6 +519,26 @@ public class Display extends JComponent implements
                     g.clearRect(displayWidth / 2 - (150 / 2), (displayHeight / 2 + (150 / 2)) + 80, 160, 10);
                 } else openerTimer++;
 
+                for (int x = pacCenterX - 5; x < pacCenterX + 5; x++) { //check for orbs
+                    for(int y = pacCenterY - 5; y < pacCenterY + 5; y++) {
+                        Color col = new Color(maze.getRGB(x, y));
+                        if (col.equals(Color.WHITE)) {
+                            Orb closest = orbs.get(0);
+                            double minDist = distance(closest.getX(), closest.getY(), pacCenterX, pacCenterY);
+                            for (Orb dot : orbs) {
+                                double candidateDist = distance(dot.getX(), dot.getY(), pacCenterX, pacCenterY);
+                                if (candidateDist < minDist) {
+                                    closest = dot;
+                                    minDist = candidateDist;
+                                }
+                            }
+                            orbs.remove(closest);
+                            g.clearRect(closest.getX(), closest.getY(), 25, 25);
+                            score += pointFunction("orb");
+                            frame.setTitle("Score: " + Integer.toString(score));
+                        }
+                    }
+            }
                 repaint();  //indicates Display must be redrawn (Java will call paintComponent)
                 try {
                     Thread.sleep(25);
@@ -503,154 +587,40 @@ public class Display extends JComponent implements
             ghost4Img = img;
     }
 
-    public void resetFrame(){
-        imageX = 400;
-        imageY = 420;
+    public double distance(int x1, int y1, int x2, int y2){
+        return Math.sqrt(Math.pow((double)x2 - x1, 2) + Math.pow((double)y2 - y1, 2));
+    }
 
-        isOpen = true;
-        justChangedDir = false;
+    public int pointFunction(String a){
+        if(a.equals("orb"))
+            return (int)Math.pow(100, -1*((gameTime-200)/200));
+        else if(a.equals("ghost"))
+            return (int)Math.pow(1000, -1*((gameTime-200)/200));
+        else return -1;
+    }
 
-        //load image
-        String fileName = "PacRight.png";
-        imageFile = fileName;
-        URL url = getClass().getResource(fileName);
-        if (url == null)
-            throw new RuntimeException("Unable to load:  " + fileName);
-        pac = new ImageIcon(url).getImage();
-
-        fileName = "feinbergghost.png";
-        url = getClass().getResource(fileName);
-        if (url == null)
-            throw new RuntimeException("Unable to load:  " + fileName);
-        ghost1Img = new ImageIcon(url).getImage();
-
-        fileName = "olexioghost.png";
-        url = getClass().getResource(fileName);
-        if (url == null)
-            throw new RuntimeException("Unable to load:  " + fileName);
-        ghost2Img = new ImageIcon(url).getImage();
-
-        fileName = "dennettghost.png";
-        url = getClass().getResource(fileName);
-        if (url == null)
-            throw new RuntimeException("Unable to load:  " + fileName);
-        ghost3Img = new ImageIcon(url).getImage();
-
-        fileName = "bologneseghost.jpg";
-        url = getClass().getResource(fileName);
-        if (url == null)
-            throw new RuntimeException("Unable to load:  " + fileName);
-        ghost4Img = new ImageIcon(url).getImage();
-
-
-        displayWidth = 1250;
-        displayHeight = 800;
-        maze = new BufferedImage(displayWidth, displayHeight, BufferedImage.TYPE_INT_RGB);
-        g = maze.getGraphics();
-
-        g.setColor(Color.BLACK);  //set pen color to black
-        g.fillRect(0, 0, displayWidth, displayHeight);  //fill with black rectangle
-        g.setColor(Color.BLUE);
-        g.fillRect(500,0, 10,100);
-        g.fillRect(500,100,300,10);
-        g.fillRect(800,100, 10,75);
-        g.fillRect(400,175,410,10);
-        g.fillRect(400,175,10,210);
-        g.fillRect(400,500,10,300);
-        g.fillRect(400,700,575,10);
-        g.fillRect(975,560,10,150);
-        g.fillRect(975,560,50,10);
-        g.fillRect(1085,635,50,50);
-        g.fillRect(1100,175,10,375);
-        g.fillRect(925,175,175,10);
-        g.fillRect(925,175,10,50);
-        g.fillRect(500,290,425,50);
-        g.fillRect(850,410,10,175);
-        g.fillRect(150,100,75,350);
-        g.fillRect(150,550,75,100);
-        g.fillRect(225,275,175,10);
-        g.fillRect(1100,340,150,10);
-
-        g.setColor(Color.WHITE);
-        g.fillOval(60,50,25,25);
-        g.fillOval(60,100,25,25);
-        g.fillOval(60,150,25,25);
-        g.fillOval(60,200,25,25);
-        g.fillOval(60,250,25,25);
-        g.fillOval(60,300,25,25);
-        g.fillOval(60,350,25,25);
-        g.fillOval(60,400,25,25);
-        g.fillOval(60,450,25,25);
-        g.fillOval(110,475,25,25);
-        g.fillOval(160,475,25,25);
-        g.fillOval(210,475,25,25);
-        g.fillOval(260,475,25,25);
-        g.fillOval(310,475,25,25);
-        g.fillOval(310,475,25,25);
-        g.fillOval(310,510,25,25);
-        g.fillOval(310,560,25,25);
-        g.fillOval(310,610,25,25);
-        g.fillOval(310,660,25,25);
-        g.fillOval(310,710,25,25);
-        g.fillOval(260,710,25,25);
-        g.fillOval(210,710,25,25);
-        g.fillOval(160,710,25,25);
-        g.fillOval(110,710,25,25);
-
-        g.fillOval(60,500,25,25);
-        g.fillOval(60,550,25,25);
-        g.fillOval(60,600,25,25);
-        g.fillOval(60,650,25,25);
-        g.fillOval(60,700,25,25);
-
-
-
-
-        g.setColor(Color.BLUE);
-        g.fillRect(displayWidth/2-(150/2),(displayHeight/2-(150/2))+80,150,10); //GHOST SQUARE
-        g.fillRect(displayWidth/2-(150/2),(displayHeight/2-(150/2))+80,10,150);
-        g.fillRect(displayWidth/2+(150/2),(displayHeight/2-(150/2))+80,10,150);
-        g.fillRect(displayWidth/2-(150/2),(displayHeight/2+(150/2))+80,160,10);
-        g.fillRect(0, 0, 1250, 20); //Top edge
-        g.fillRect(0, 0, 20, 819); //left side edge
-        g.fillRect(0, 780, 1250, 20); //bottom edge
-        g.fillRect(1230, 0, 20, 800); //right edge
-
-        frame.setTitle("Title");  //set title of window
-        imageWidth = pac.getWidth(frame);
-        imageHeight = pac.getHeight(frame);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//closing window will exit program
-        setPreferredSize(new Dimension(displayWidth, displayHeight));  //set size of drawing region
-
-        //need for keyboard input
-        setFocusable(true);  //indicates that Display can process key presses
-        addKeyListener(this);  //will notify Display when a key is pressed
-
-        //need for mouse input
-        addMouseListener(this);  //will notify Display when the mouse is pressed
-
-        frame.getContentPane().add(this);  //add drawing region to window
-        frame.pack();  //adjust window size to fit drawing region
-        frame.setVisible(true);  //show window
-
-        ghosts = new ArrayList<Ghost>();
-        //add ghost to list and initialize ghosts
-        ghost1 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+115, this, 1);
-        ghost2 = new Ghost(displayWidth/2-(150/2)+25, displayHeight/2-(150/2)+170, this, 2);
-        ghost3 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+115, this, 3);
-        ghost4 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+175, this, 4);
-        ghosts.add(ghost1);
-        ghosts.add(ghost2);
-        ghosts.add(ghost3);
-        ghosts.add(ghost4);
-
-        JPanel pane = new JPanel();
-        JLabel label = new JLabel("<html><font color='green'>Welcome to Pac-Men<br>WASD to move<br>Collect coins for high score<br>Score is at the top");
-        label.setFont(new Font("Arial", Font.BOLD, 25));
-        pane.add(label);
-        pane.setPreferredSize(new Dimension(400, 200));
-        JOptionPane optionPane = new JOptionPane();
-        optionPane.setPreferredSize(new Dimension(200, 200));
-        JOptionPane.showMessageDialog(frame, pane, "Introduction", JOptionPane.INFORMATION_MESSAGE);
+    public void respawnGhost(int type, Ghost ghost){
+        URL url;
+        Image img = null;
+        if(type == 1) {
+            url = getClass().getResource(ghost1File);
+            img = new ImageIcon(url).getImage();
+            ghost1Img = img;
+        }
+        else if(type == 2){
+            url = getClass().getResource(ghost2File);
+            img = new ImageIcon(url).getImage();
+            ghost2Img = img;
+        }
+        else if(type == 3){
+            url = getClass().getResource(ghost3File);
+            img = new ImageIcon(url).getImage();
+            ghost3Img = img;
+        }
+        else if(type == 4){
+            url = getClass().getResource(ghost4File);
+            img = new ImageIcon(url).getImage();
+            ghost4Img = img;
+        }
     }
 }
