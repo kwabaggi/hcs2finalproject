@@ -93,4 +93,13 @@ public class Ghost {
     public int getImageHeight(){
         return imageHeight;
     }
+
+    public void changeDirection(){
+        direction = (int) (Math.random() * 4);
+        directionCounter = 0;
+    }
+
+    public boolean isRunAway(){
+        return runAway;
+    }
 }
