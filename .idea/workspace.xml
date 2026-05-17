@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.15 at 15:08&#10;Big update: Working Game v1">
-      <change afterPath="$PROJECT_DIR$/pacman_chomp.wav" afterDir="false" />
+    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.16 at 16:18 (sound added)&#10;Big update: Working Game v1.5">
+      <change afterPath="$PROJECT_DIR$/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDo.md" beforeDir="false" afterPath="$PROJECT_DIR$/ToDo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Ghost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/ToDo.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/ToDo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,7 +325,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778958571834</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="2026.05.16 at 16:18 (sound added)&#10;Big update: Working Game v1.5">
+      <option name="closed" value="true" />
+      <created>1778962724976</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1778962724976</updated>
+    </task>
+    <task id="LOCAL-00020" summary="2026.05.16 at 16:18 (sound added)&#10;Big update: Working Game v1.5">
+      <option name="closed" value="true" />
+      <created>1778962760005</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1778962760005</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -345,7 +366,9 @@
     <MESSAGE value="2026.05.15 at 18:01" />
     <MESSAGE value="2026.05.15 at 22:53" />
     <MESSAGE value="2026.05.15 at 15:08&#10;Big update: Working Game v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026.05.15 at 15:08&#10;Big update: Working Game v1" />
+    <MESSAGE value="2026.05.15 at 16:18 (sound added)&#10;Big update: Working Game v1.5" />
+    <MESSAGE value="2026.05.16 at 16:18 (sound added)&#10;Big update: Working Game v1.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="2026.05.16 at 16:18 (sound added)&#10;Big update: Working Game v1.5" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

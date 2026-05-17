@@ -433,7 +433,7 @@ public class Display extends JComponent implements
                 for (Ghost ghost : ghosts) {
                     double dist = distance(ghost.getCenterX(), ghost.getCenterY(), pacCenterX, pacCenterY);
                     //System.out.println(dist);
-                    if (!ghost.isRunAway() && dist < 30) {
+                    if (!ghost.isRunAway() && dist < 35) {
                         JPanel finalPanel = new JPanel();
                         playAudio("pacman_death.wav");
                         JLabel label = new JLabel("<html>You died. Your score is: <font color = '#A11FC2'><b>" + score + "</b></html>");
@@ -452,7 +452,7 @@ public class Display extends JComponent implements
                         main(args);
                         return;
                     }
-                    else if(ghost.isRunAway() && dist < 30 && ghost.getValidToKilled()){
+                    else if(ghost.isRunAway() && dist < 35 && ghost.getValidToKilled()){
                         //g.clearRect(ghost.getX(), ghost.getY(), ghost.getImageWidth(), ghost.getImageHeight());
                         ghost.setKill();
                         score += pointFunction("ghost");
@@ -595,8 +595,12 @@ public class Display extends JComponent implements
             ghost4Img = img;
     }
 
-    public double distance(int x1, int y1, int x2, int y2){
+    public static double distance(int x1, int y1, int x2, int y2){
         return Math.sqrt(Math.pow((double)x2 - x1, 2) + Math.pow((double)y2 - y1, 2));
+    }
+
+    public static double distance(Location loc1, Location loc2){
+        return Math.sqrt(Math.pow((double)loc2.getX() - loc1.getX(), 2) + Math.pow((double)loc2.getY() - loc1.getY(), 2));
     }
 
     public int pointFunction(String a){
@@ -633,7 +637,7 @@ public class Display extends JComponent implements
     }
 
     public void playAudio(String file) {
-        if (soundTimer > 15) {
+        if (soundTimer > 12) {
             soundTimer = 0;
             File sound = new File(file);
             if (sound.exists()) {
@@ -647,5 +651,13 @@ public class Display extends JComponent implements
                 }
             } else throw new RuntimeException("Unable to load " + file);
         }
+    }
+
+    public int getPacCenterX(){
+        return pacCenterX;
+    }
+
+    public int getPacCenterY(){
+        return pacCenterY;
     }
 }

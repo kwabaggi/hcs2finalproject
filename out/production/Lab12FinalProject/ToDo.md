@@ -1,5 +1,5 @@
 To do: 
 
-Make it so that there is a introduction heading (like in ACS1 supergame)
+Pathfinding for ghosts
 
-Get approval from instructors to use faces for ghosts
+Remove dead ends and make pac man turn on ends

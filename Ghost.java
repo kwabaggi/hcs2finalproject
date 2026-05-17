@@ -6,7 +6,7 @@ public class Ghost {
     private int spawnX;
     private int spawnY;
     private Display display;
-    private int direction;
+    private String direction;
     private int directionCounter;
     private int imageWidth;
     private int imageHeight;
@@ -16,6 +16,8 @@ public class Ghost {
     private boolean validToKilled;
     private int centerX;
     private int centerY;
+    private boolean onlyGoingLeft;
+    private int leftTimer;
 
     public Ghost(int imageX, int imageY, Display disp, int type){
         this.imageX = imageX;
@@ -29,6 +31,7 @@ public class Ghost {
         centerX = imageX + imageWidth/2;
         centerY = imageY + imageHeight/2;
         validToKilled = true;
+        direction = "left";
     }
 
     public void run() {
@@ -78,29 +81,71 @@ public class Ghost {
 
     public void changeLocation() {
         if (!isKilled) {
-            if (directionCounter >= 10) {
-                direction = (int) (Math.random() * 4);
-                directionCounter = 0;
-            } else directionCounter++;
-            if (direction == 0) {
-                for (int i = 0; i < 11; i++) {
-                    if (imageX > 0 && display.ghostNotOnWall("left", this))
-                        imageX--;
+            if(!onlyGoingLeft) {
+                if (directionCounter >= 5) {
+                    int x = (int) (Math.random() * 4);
+                    if(x == 0)
+                        direction = "left";
+                    else if(x == 1)
+                        direction = "right";
+                    else if(x == 2)
+                        direction = "up";
+                    else if(x == 3)
+                        direction = "down";
+                    /*Location pacCenter = new Location(display.getPacCenterX(), display.getPacCenterY());
+                    Location closest = new Location(imageX - 1, imageY);
+                    direction = "left";
+                    double closestDist = Display.distance(new Location(closest.getX(), closest.getY()), pacCenter);
+
+                    double rightDist = Display.distance(new Location(imageX + 1, imageY), pacCenter);
+                    if (rightDist < closestDist) {
+                        direction = "right";
+                        closestDist = rightDist;
+                    }
+                    double downDist = Display.distance(new Location(imageX, imageY + 1), pacCenter);
+                    if (downDist < closestDist) {
+                        direction = "down";
+                        closestDist = downDist;
+                    }
+                    double upDist = Display.distance(new Location(imageX, imageY - 1), pacCenter);
+                    if (upDist < closestDist)
+                        direction = "up";*/
+                    directionCounter = 0;
+                } else directionCounter++;
+
+                if (direction.equals("left")) {
+                    for (int i = 0; i < 14; i++) {
+                        if (imageX > 0 && display.ghostNotOnWall("left", this))
+                            imageX--;
+                    }
+                } else if (direction.equals("right")) {
+                    for (int i = 0; i < 14; i++) {
+                        if (imageX < display.getDisplayWidth() - 60 && display.ghostNotOnWall("right", this))
+                            imageX++;
+                    }
+                } else if (direction.equals("up")) {
+                    for (int i = 0; i < 14; i++) {
+                        if (imageY > 0 && display.ghostNotOnWall("up", this))
+                            imageY--;
+                    }
+                } else if (direction.equals("down")) {
+                    for (int i = 0; i < 14; i++) {
+                        if (imageY < display.getDisplayHeight() - 55 && display.ghostNotOnWall("down", this))
+                            imageY++;
+                    }
                 }
-            } else if (direction == 1) {
-                for (int i = 0; i < 11; i++) {
-                    if (imageX < display.getDisplayWidth() - 60 && display.ghostNotOnWall("right", this))
-                        imageX++;
+            }
+            else{
+                if(leftTimer < 40) {
+                    leftTimer ++;
+                    for (int i = 0; i < 10; i++) {
+                        if (imageX > 0 && display.ghostNotOnWall("left", this))
+                            imageX--;
+                    }
                 }
-            } else if (direction == 2) {
-                for (int i = 0; i < 11; i++) {
-                    if (imageY > 0 && display.ghostNotOnWall("up", this))
-                        imageY--;
-                }
-            } else if (direction == 3) {
-                for (int i = 0; i < 11; i++) {
-                    if (imageY < display.getDisplayHeight() - 55 && display.ghostNotOnWall("down", this))
-                        imageY++;
+                else{
+                    onlyGoingLeft = false;
+                    leftTimer = 0;
                 }
             }
             centerX = imageX + imageWidth/2;
@@ -117,7 +162,16 @@ public class Ghost {
     }
 
     public void changeDirection(){
-        direction = (int) (Math.random() * 4);
+        int x = (int) (Math.random() * 4);
+        if(x == 0)
+            direction = "left";
+        else if(x == 1)
+            direction = "right";
+        else if(x == 2)
+            direction = "up";
+        else if(x == 3)
+            direction = "down";
+        //onlyGoingLeft = true;
         directionCounter = 0;
     }
 
