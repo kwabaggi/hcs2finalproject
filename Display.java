@@ -6,6 +6,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.sound.sampled.*;
 import java.io.File;
+import java.util.List;
 
 public class Display extends JComponent implements
         KeyListener,  //need for keyboard input
@@ -15,6 +16,7 @@ public class Display extends JComponent implements
     public static void main(String[] args)
     {
             Display display = new Display();
+        System.out.println(highscoreInts.size());
             display.run();
     }
 
@@ -56,12 +58,11 @@ public class Display extends JComponent implements
     private double gameTime;
     private Clip c;
     private int soundTimer;
-    private static Map<String, Integer> highscores;
+    static ArrayList<Integer> highscoreInts = new ArrayList<Integer>();
+    static ArrayList<String> highscoreNames = new ArrayList<String>();
 
     public Display()
     {
-
-        highscores = new HashMap<String, Integer>();
 
         imageX = 400;
         imageY = 420;
@@ -230,21 +231,11 @@ public class Display extends JComponent implements
         ghosts.add(ghost3);
         ghosts.add(ghost4);
 
-//        JFrame msg = new JFrame("Introduction");
-//        JLabel text = new JLabel("Welcome to Pac-Men\nWASD to move");
-//        JButton button = new JButton("Begin Game");
-//        JPanel panel = new JPanel();
-//        msg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        panel.add(text);
-//        panel.add(button);
-//        msg.add(panel);
-//        msg.setPreferredSize(new Dimension(1000, 1000));
-//        msg.pack();
-//        msg.setVisible(true);
-
         //modify highscores (hard-coded) so don't use
-        //highscores.clear();
-        highscores.put("Jude", 100);
+        //highscoreNames.clear();
+        //highscoreInts.clear();
+       // highscoreNames.add("Jude");
+        //highscoreInts.add(100);
 
         //highscore JFrame
         JFrame highscoreFrame = new JFrame();  //create window
@@ -255,14 +246,14 @@ public class Display extends JComponent implements
         DefaultListModel listModel = new DefaultListModel();
 
         ArrayList<String> names = new ArrayList<String>();
-        for(String name : highscores.keySet())
+        for(String name : highscoreNames)
             names.add(name);
 
         ArrayList<Integer> scores = new ArrayList<Integer>();
-        for(String name : highscores.keySet())
-            scores.add(highscores.get(name));
+        for(int score : highscoreInts)
+            scores.add(score);
         for (int i = 0; i < names.size(); i++) {
-            String row = "<html><table><tr><td width='120'><span style='font-size:15px;'>" + names.get(i) +
+            String row = "<html><table><tr><td width='150'><span style='font-size:15px;'>" + names.get(i) +
                     "</td><td width='120'><span style='font-size:15px;'>" + scores.get(i) + "</td></tr></table></html>";
             listModel.addElement(row);
         }
@@ -491,17 +482,19 @@ public class Display extends JComponent implements
                         JPanel finalPanel = new JPanel();
                         playAudio("pacman_death.wav");
                         JLabel label = new JLabel("<html>You died. Your score is: <font color = '#A11FC2'><b>" + score + "</b></html>");
-                        JLabel second = new JLabel("<html><font color = '#2BAD7D'><br>Thanks for playing Pac-Men! \uD83D\uDE01</html>");;
+                        JLabel second = new JLabel("<html><font color = '#2BAD7D'><br>Thanks for playing Pac-Men! \uD83D\uDE01<br><font color = 'black'>Close to see if you got a highscore </html>");;
                         label.setFont(new Font("Arial", Font.BOLD, 25));
                         second.setFont(new Font("Arial", Font.BOLD, 25));
                         finalPanel.add(label);
                         finalPanel.add(second);
+                        second.setPreferredSize(new Dimension(350, 225));
                         finalPanel.setLayout(new BoxLayout(finalPanel, BoxLayout.Y_AXIS));
-                        finalPanel.setPreferredSize(new Dimension(350, 175));
+                        finalPanel.setPreferredSize(new Dimension(350, 225));
                         JOptionPane optionPane = new JOptionPane();
                         optionPane.setPreferredSize(new Dimension(350, 0));
                         UIManager.put("OptionPane.okButtonText", "Close");
                         JOptionPane.showMessageDialog(frame, finalPanel, "Final Score", JOptionPane.INFORMATION_MESSAGE);
+                        checkForHighscore();
                         String[] args = new String[0];
                         main(args);
                         return;
@@ -747,5 +740,44 @@ public class Display extends JComponent implements
             else direction = "right";
         }
         return direction;
+    }
+
+    public void checkForHighscore(){
+        JPanel finalPanel = new JPanel();
+        JLabel label = new JLabel();
+        label.setFont(new Font("Arial", Font.BOLD, 25));
+        finalPanel.add(label);
+        finalPanel.setPreferredSize(new Dimension(350, 100));
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.setPreferredSize(new Dimension(350, 0));
+        if(10 > highscoreInts.size() || score > highscoreInts.get(9)){
+            UIManager.put("OptionPane.okButtonText", "Save and close");
+            label.setText("<html>You're on the leaderboard!<br>Put your name here:</html>");
+            String name = JOptionPane.showInputDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
+            highscoreInts.add(score);
+            highscoreInts.sort(Comparator.reverseOrder());
+            int indexToAdd = findIndexOf(highscoreInts, score);
+            highscoreNames.add(indexToAdd, name);
+            //printAll(highscoreInts);
+            //printAll(highscoreNames);
+        }
+        else{
+            UIManager.put("OptionPane.okButtonText", "Exit game");
+            label.setText("The score was lower than the 10th highest score, but thanks for playing! \uD83D\uDE01");
+            JOptionPane.showMessageDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    public <E> int findIndexOf(List<E> list, int obj){
+        for(int i = 0; i < list.size(); i ++){
+            if(list.get(i).equals(obj))
+                return i;
+        }
+        return -1;
+    }
+
+    public <E> void printAll(List<E> list){
+        for(E obj : list)
+            System.out.println(obj);
     }
 }
