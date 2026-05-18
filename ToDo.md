@@ -2,6 +2,6 @@ To do:
 
 Pathfinding for ghosts
 
-Remove dead ends and make pac man turn on ends
+Remove dead ends
 
-high score table
+high score table - JTextField (user text input)

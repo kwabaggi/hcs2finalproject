@@ -56,9 +56,12 @@ public class Display extends JComponent implements
     private double gameTime;
     private Clip c;
     private int soundTimer;
+    private static Map<String, Integer> highscores;
 
     public Display()
     {
+
+        highscores = new HashMap<String, Integer>();
 
         imageX = 400;
         imageY = 420;
@@ -239,6 +242,40 @@ public class Display extends JComponent implements
 //        msg.pack();
 //        msg.setVisible(true);
 
+        //modify highscores (hard-coded) so don't use
+        //highscores.clear();
+        highscores.put("Jude", 100);
+
+        //highscore JFrame
+        JFrame highscoreFrame = new JFrame();  //create window
+        JPanel scorePanel = new JPanel();
+        highscoreFrame.setTitle("Highscores");  //set title of window
+        highscoreFrame.setPreferredSize(new Dimension(200, 500));
+        highscoreFrame.setLocation(frame.getX()+frame.getWidth(), frame.getY());
+        DefaultListModel listModel = new DefaultListModel();
+
+        ArrayList<String> names = new ArrayList<String>();
+        for(String name : highscores.keySet())
+            names.add(name);
+
+        ArrayList<Integer> scores = new ArrayList<Integer>();
+        for(String name : highscores.keySet())
+            scores.add(highscores.get(name));
+        for (int i = 0; i < names.size(); i++) {
+            String row = "<html><table><tr><td width='120'><span style='font-size:15px;'>" + names.get(i) +
+                    "</td><td width='120'><span style='font-size:15px;'>" + scores.get(i) + "</td></tr></table></html>";
+            listModel.addElement(row);
+        }
+        JList list = new JList(listModel);
+        JScrollPane listPane = new JScrollPane(list);
+        listPane.setPreferredSize(new Dimension(200, 500));
+        scorePanel.add(listPane);
+        scorePanel.setPreferredSize(new Dimension(200, 500));
+        highscoreFrame.add(scorePanel);
+        highscoreFrame.pack();
+        highscoreFrame.setVisible(true);  //show window
+
+
         //play intro audio
         soundTimer = 21;
         playAudio("pacman_beginning.wav");
@@ -393,28 +430,45 @@ public class Display extends JComponent implements
     }
 
     public void moveImage(String direction){ //move the image
+
         if(direction.equals("left")){
             for(int i = 0; i < 4; i ++){
                 if(imageX > 0 && notOnWall("left"))
                     imageX --;
+                else if(!notOnWall("left")) {
+                    this.direction = getNewDirection("left");
+                    return;
+                }
             }
         }
         else if(direction.equals("right")){
             for(int i = 0; i < 4; i ++){
                 if(imageX < displayWidth-60 && notOnWall("right"))
                     imageX ++;
+                else if(!notOnWall("right")) {
+                    this.direction = getNewDirection("right");
+                    return;
+                }
             }
         }
         else if(direction.equals("up")){
             for(int i = 0; i < 4; i ++){
                 if(imageY > 0 && notOnWall("up"))
                     imageY --;
+                else if(!notOnWall("up")) {
+                    this.direction = getNewDirection("up");
+                    return;
+                }
             }
         }
         else if(direction.equals("down")){
             for(int i = 0; i < 4; i ++){
                 if(imageY < displayHeight-55 && notOnWall("down"))
                     imageY ++;
+                else if(!notOnWall("down")) {
+                    this.direction = getNewDirection("down");
+                    return;
+                }
             }
         }
     }
@@ -433,7 +487,7 @@ public class Display extends JComponent implements
                 for (Ghost ghost : ghosts) {
                     double dist = distance(ghost.getCenterX(), ghost.getCenterY(), pacCenterX, pacCenterY);
                     //System.out.println(dist);
-                    if (!ghost.isRunAway() && dist < 35) {
+                    if (!ghost.isRunAway() && dist < 40) {
                         JPanel finalPanel = new JPanel();
                         playAudio("pacman_death.wav");
                         JLabel label = new JLabel("<html>You died. Your score is: <font color = '#A11FC2'><b>" + score + "</b></html>");
@@ -452,7 +506,7 @@ public class Display extends JComponent implements
                         main(args);
                         return;
                     }
-                    else if(ghost.isRunAway() && dist < 35 && ghost.getValidToKilled()){
+                    else if(ghost.isRunAway() && dist < 40 && ghost.getValidToKilled()){
                         //g.clearRect(ghost.getX(), ghost.getY(), ghost.getImageWidth(), ghost.getImageHeight());
                         ghost.setKill();
                         score += pointFunction("ghost");
@@ -637,7 +691,7 @@ public class Display extends JComponent implements
     }
 
     public void playAudio(String file) {
-        if (soundTimer > 12) {
+        if (soundTimer > 12 || file.equals("pacman_death.wav")) {
             soundTimer = 0;
             File sound = new File(file);
             if (sound.exists()) {
@@ -659,5 +713,39 @@ public class Display extends JComponent implements
 
     public int getPacCenterY(){
         return pacCenterY;
+    }
+
+    public String getNewDirection(String omitted){
+        String direction = null;
+        int dir = (int) (Math.random() * 3);
+        if(omitted.equals("left")) {
+            if(dir == 0)
+                direction = "right";
+            else if(dir == 1)
+                direction = "up";
+            else direction = "down";
+        }
+        else if(omitted.equals("right")){
+            if(dir == 0)
+                direction = "left";
+            else if(dir == 1)
+                direction = "up";
+            else direction = "down";
+        }
+        else if(omitted.equals("up")){
+            if(dir == 0)
+                direction = "left";
+            else if(dir == 1)
+                direction = "right";
+            else direction = "down";
+        }
+        else if(omitted.equals("down")){
+            if(dir == 0)
+                direction = "left";
+            else if(dir == 1)
+                direction = "up";
+            else direction = "right";
+        }
+        return direction;
     }
 }

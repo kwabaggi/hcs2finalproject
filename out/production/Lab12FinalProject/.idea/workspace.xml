@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.15 at 09:05">
-      <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.java" afterDir="false" />
+    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.16 at 20:10 v1.6">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDo.md" beforeDir="false" afterPath="$PROJECT_DIR$/ToDo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,7 +295,55 @@
       <option name="project" value="LOCAL" />
       <updated>1778850336897</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="2026.05.15 at 18:01">
+      <option name="closed" value="true" />
+      <created>1778882510741</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1778882510741</updated>
+    </task>
+    <task id="LOCAL-00017" summary="2026.05.15 at 22:53">
+      <option name="closed" value="true" />
+      <created>1778900031228</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1778900031228</updated>
+    </task>
+    <task id="LOCAL-00018" summary="2026.05.15 at 15:08&#10;Big update: Working Game v1">
+      <option name="closed" value="true" />
+      <created>1778958571834</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1778958571834</updated>
+    </task>
+    <task id="LOCAL-00019" summary="2026.05.16 at 16:18 (sound added)&#10;Big update: Working Game v1.5">
+      <option name="closed" value="true" />
+      <created>1778962724976</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1778962724976</updated>
+    </task>
+    <task id="LOCAL-00020" summary="2026.05.16 at 16:18 (sound added)&#10;Big update: Working Game v1.5">
+      <option name="closed" value="true" />
+      <created>1778962760005</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1778962760005</updated>
+    </task>
+    <task id="LOCAL-00021" summary="2026.05.16 at 20:10 v1.6">
+      <option name="closed" value="true" />
+      <created>1778976653310</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1778976653310</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,7 +365,13 @@
     <MESSAGE value="2026.05.14 at 20:34" />
     <MESSAGE value="2026.05.14 at 20:56&#10;Fixed ghost issue" />
     <MESSAGE value="2026.05.15 at 09:05" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026.05.15 at 09:05" />
+    <MESSAGE value="2026.05.15 at 18:01" />
+    <MESSAGE value="2026.05.15 at 22:53" />
+    <MESSAGE value="2026.05.15 at 15:08&#10;Big update: Working Game v1" />
+    <MESSAGE value="2026.05.15 at 16:18 (sound added)&#10;Big update: Working Game v1.5" />
+    <MESSAGE value="2026.05.16 at 16:18 (sound added)&#10;Big update: Working Game v1.5" />
+    <MESSAGE value="2026.05.16 at 20:10 v1.6" />
+    <option name="LAST_COMMIT_MESSAGE" value="2026.05.16 at 20:10 v1.6" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

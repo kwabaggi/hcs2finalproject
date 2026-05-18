@@ -36,7 +36,7 @@ public class Ghost {
 
     public void run() {
         if (runAway && !isKilled) {
-            if (runAwayTimer < 240)
+            if (runAwayTimer < 300)
             runAwayTimer ++;
             else{
                 runAwayTimer = 0;
