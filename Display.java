@@ -1,7 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.PrintWriter;
 import java.net.*;
+import java.sql.Array;
 import java.util.*;
 import javax.swing.*;
 import javax.sound.sampled.*;
@@ -237,12 +239,36 @@ public class Display extends JComponent implements
        // highscoreNames.add("Jude");
         //highscoreInts.add(100);
 
+        File scoreFile = new File("highscores.txt");
+        ArrayList<String> currentHighscoreNames = new ArrayList<>();
+        ArrayList<Integer> currentHighscoreInts = new ArrayList<>();
+        try{
+            Scanner scan = new Scanner(scoreFile);
+            highscoreInts.clear();
+            highscoreNames.clear();
+            while(scan.hasNextLine()){ //only read the first ten lines and dispose the other ones
+                currentHighscoreNames.add(scan.next());
+                int a = Integer.parseInt(scan.next());
+                highscoreInts.add(a);
+                currentHighscoreInts.add(a);
+            }
+            scan.close();
+        }
+        catch(Exception e) {
+
+        }
+
+        Collections.sort(currentHighscoreInts, Comparator.reverseOrder());
+        for(int num : currentHighscoreInts)
+            highscoreNames.add(findIndexOf(currentHighscoreInts, num), currentHighscoreNames.get(findIndexOf(highscoreInts, num)));
+        highscoreInts = currentHighscoreInts;
+
         //highscore JFrame
         JFrame highscoreFrame = new JFrame();  //create window
         JPanel scorePanel = new JPanel();
         highscoreFrame.setTitle("Highscores");  //set title of window
-        highscoreFrame.setPreferredSize(new Dimension(200, 500));
         highscoreFrame.setLocation(frame.getX()+frame.getWidth(), frame.getY());
+        highscoreFrame.setPreferredSize(new Dimension(1470-highscoreFrame.getX(), 500));
         DefaultListModel listModel = new DefaultListModel();
 
         ArrayList<String> names = new ArrayList<String>();
@@ -259,9 +285,9 @@ public class Display extends JComponent implements
         }
         JList list = new JList(listModel);
         JScrollPane listPane = new JScrollPane(list);
-        listPane.setPreferredSize(new Dimension(200, 500));
+        listPane.setPreferredSize(new Dimension(1470-highscoreFrame.getX(), 450));
         scorePanel.add(listPane);
-        scorePanel.setPreferredSize(new Dimension(200, 500));
+        scorePanel.setPreferredSize(new Dimension(1470-highscoreFrame.getX(), 450));
         highscoreFrame.add(scorePanel);
         highscoreFrame.pack();
         highscoreFrame.setVisible(true);  //show window
@@ -747,23 +773,48 @@ public class Display extends JComponent implements
         JLabel label = new JLabel();
         label.setFont(new Font("Arial", Font.BOLD, 25));
         finalPanel.add(label);
-        finalPanel.setPreferredSize(new Dimension(350, 100));
         JOptionPane optionPane = new JOptionPane();
-        optionPane.setPreferredSize(new Dimension(350, 0));
         if(10 > highscoreInts.size() || score > highscoreInts.get(9)){
+            finalPanel.setPreferredSize(new Dimension(350, 100));
+            optionPane.setPreferredSize(new Dimension(350, 0));
             UIManager.put("OptionPane.okButtonText", "Save and close");
             label.setText("<html>You're on the leaderboard!<br>Put your name here:</html>");
             String name = JOptionPane.showInputDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
-            highscoreInts.add(score);
-            highscoreInts.sort(Comparator.reverseOrder());
-            int indexToAdd = findIndexOf(highscoreInts, score);
-            highscoreNames.add(indexToAdd, name);
+            File scoreFile = new File("highscores.txt");
+            ArrayList<String> currentHighscoreNames = new ArrayList<>();
+            ArrayList<Integer> currentHighscoreInts = new ArrayList<>();
+            try{
+                Scanner scan = new Scanner(scoreFile);
+                int i = 0;
+                while(scan.hasNextLine() && i < 9){ //only read the first ten lines and dispose the other ones
+                    currentHighscoreNames.add(scan.next());
+                    int a = Integer.parseInt(scan.next());
+                    currentHighscoreInts.add(a);
+                    i ++;
+                }
+                scan.close();
+                new PrintWriter("highscores.txt").close();
+                PrintWriter writer = new PrintWriter("highscores.txt");
+                for(i = 0; i < currentHighscoreNames.size(); i++){
+                    writer.print(currentHighscoreNames.get(i) + " ");
+                    writer.println(currentHighscoreInts.get(i));
+                }
+                writer.print(name + " ");
+                writer.print(score);
+                writer.close();
+            }
+            catch(Exception e) {
+                System.err.println(e);
+            }
             //printAll(highscoreInts);
             //printAll(highscoreNames);
         }
         else{
+            finalPanel.setPreferredSize(new Dimension(350, 100));
+            optionPane.setPreferredSize(new Dimension(350, 0));
+            label.setPreferredSize(new Dimension(350, 100));
             UIManager.put("OptionPane.okButtonText", "Exit game");
-            label.setText("The score was lower than the 10th highest score, but thanks for playing! \uD83D\uDE01");
+            label.setText("<html>The score was lower than<br> the 10th highest score,<br> but thanks for playing! \uD83D\uDE01</html>");
             JOptionPane.showMessageDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
         }
     }
