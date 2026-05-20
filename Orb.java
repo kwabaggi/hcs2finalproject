@@ -18,6 +18,6 @@ public class Orb{
     }
 
     public int getSize(){
-        return size;
+        return size; //FIX
     }
 }

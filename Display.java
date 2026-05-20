@@ -472,6 +472,20 @@ public class Display extends JComponent implements
         //need for mouse input
         addMouseListener(this);  //will notify Display when the mouse is pressed
 
+
+        //change logo of JPanels
+        String pacLogo = "pacmenlogo.png";
+        url = getClass().getResource(pacLogo);
+        if (url == null)
+            throw new RuntimeException("Unable to load:  " + ghost4File);
+        ImageIcon img = new ImageIcon(url);
+        UIManager.put("OptionPane.informationIcon", img);
+
+        Taskbar taskbar = Taskbar.getTaskbar();
+        taskbar.setIconImage(pac);
+
+
+
         frame.getContentPane().add(this);  //add drawing region to window
         frame.pack();  //adjust window size to fit drawing region
         frame.setVisible(true);  //show window
@@ -492,14 +506,6 @@ public class Display extends JComponent implements
         //highscoreInts.clear();
        // highscoreNames.add("Jude");
         //highscoreInts.add(100);
-
-        //change logo of JPanels
-        String pacLogo = "pacmenlogo.png";
-        url = getClass().getResource(pacLogo);
-        if (url == null)
-            throw new RuntimeException("Unable to load:  " + ghost4File);
-        frame.setIconImage(new ImageIcon(url).getImage());
-
 
         File scoreFile = new File("highscores.txt");
         ArrayList<String> currentHighscoreNames = new ArrayList<>();
