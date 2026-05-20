@@ -254,7 +254,7 @@ public class Display extends JComponent implements
         orbs.add(new Orb(540,754));
         g.fillOval(505,737,15,15);
         orbs.add(new Orb(505,737));
-        g.fillOval(420,670,20,20); //ETHAN
+        g.fillOval(420,670,20,20); //E
         orbs.add(new Orb(420,670));
         g.fillOval(450,670,20,20);
         orbs.add(new Orb(450,670));
@@ -270,10 +270,180 @@ public class Display extends JComponent implements
         orbs.add(new Orb(450,580));
         g.fillOval(480,580,20,20);
         orbs.add(new Orb(480,580));
-        g.fillOval(450,625,20,20);
-        orbs.add(new Orb(450,625));
-        g.fillOval(480,625,20,20);
-        orbs.add(new Orb(480,625));
+        g.fillOval(445,625,20,20);
+        orbs.add(new Orb(445,625));
+        g.fillOval(475,625,20,20);
+        orbs.add(new Orb(475,625));
+        g.fillOval(530,610,20,20); //T
+        orbs.add(new Orb(530,610));
+        g.fillOval(560,610,20,20);
+        orbs.add(new Orb(560,610));
+        g.fillOval(590,610,20,20);
+        orbs.add(new Orb(590,610));
+        g.fillOval(560,580,20,20);
+        orbs.add(new Orb(560,580));
+        g.fillOval(560,640,20,20);
+        orbs.add(new Orb(560,640));
+        g.fillOval(560,670,20,20);
+        orbs.add(new Orb(560,670));
+        g.fillOval(630,605,20,20); //H
+        orbs.add(new Orb(630,605));
+        g.fillOval(630,575,20,20);
+        orbs.add(new Orb(630,575));
+        g.fillOval(630,640,20,20);
+        orbs.add(new Orb(630,635));
+        g.fillOval(630,670,20,20);
+        orbs.add(new Orb(630,665));
+        g.fillOval(655,620,20,20);
+        orbs.add(new Orb(655,620));
+        g.fillOval(685,620,20,20);
+        orbs.add(new Orb(685,620));
+        g.fillOval(685,640,20,20);
+        orbs.add(new Orb(685,640));
+        g.fillOval(685,670,20,20);
+        orbs.add(new Orb(685,670));
+        g.fillOval(720,615,20,20); //A
+        orbs.add(new Orb(720,615));
+        g.fillOval(750,615,20,20);
+        orbs.add(new Orb(750,615));
+        g.fillOval(780,615,20,20);
+        orbs.add(new Orb(780,615));
+        g.fillOval(720,645,20,20);
+        orbs.add(new Orb(720,645));
+        g.fillOval(720,670,20,20);
+        orbs.add(new Orb(720,670));
+        g.fillOval(750,670,20,20);
+        orbs.add(new Orb(750,670));
+        g.fillOval(780,670,20,20);
+        orbs.add(new Orb(780,670));
+        g.fillOval(780,640,20,20);
+        orbs.add(new Orb(780,640));
+        g.fillOval(810,670,20,20);
+        orbs.add(new Orb(810,670));
+        g.fillOval(850,670,20,20); //N
+        orbs.add(new Orb(850,670));
+        g.fillOval(850,640,20,20);
+        orbs.add(new Orb(850,640));
+        g.fillOval(850,610,20,20);
+        orbs.add(new Orb(850,610));
+        g.fillOval(870,625,20,20);
+        orbs.add(new Orb(870,625));
+        g.fillOval(900,625,20,20);
+        orbs.add(new Orb(900,625));
+        g.fillOval(900,645,20,20);
+        orbs.add(new Orb(900,645));
+        g.fillOval(900,670,20,20);
+        orbs.add(new Orb(900,670));
+        g.fillOval(420,200,20,20); //J
+        orbs.add(new Orb(420,200));
+        g.fillOval(450,200,20,20);
+        orbs.add(new Orb(450,200));
+        g.fillOval(480,200,20,20);
+        orbs.add(new Orb(480,200));
+        g.fillOval(450,230,20,20);
+        orbs.add(new Orb(450,230));
+        g.fillOval(450,260,20,20);
+        orbs.add(new Orb(450,260));
+        g.fillOval(425,260,20,20);
+        orbs.add(new Orb(425,260));
+        g.fillOval(525,200,20,20); //U
+        orbs.add(new Orb(525,200));
+        g.fillOval(525,230,20,20);
+        orbs.add(new Orb(525,230));
+        g.fillOval(525,260,20,20);
+        orbs.add(new Orb(525,260));
+        g.fillOval(550,260,20,20);
+        orbs.add(new Orb(550,260));
+        g.fillOval(575,260,20,20);
+        orbs.add(new Orb(575,260));
+        g.fillOval(575,230,20,20);
+        orbs.add(new Orb(575,230));
+        g.fillOval(575,200,20,20);
+        orbs.add(new Orb(575,200));
+        g.fillOval(620,200,20,20); //D
+        orbs.add(new Orb(620,200));
+        g.fillOval(620,230,20,20);
+        orbs.add(new Orb(620,230));
+        g.fillOval(620,260,20,20);
+        orbs.add(new Orb(620,260));
+        g.fillOval(645,215,20,20);
+        orbs.add(new Orb(645,215));
+        g.fillOval(645,245,20,20);
+        orbs.add(new Orb(645,245));
+        g.fillOval(660,230,20,20);
+        orbs.add(new Orb(660,230));
+        g.fillOval(705,200,20,20); //Jude's E
+        orbs.add(new Orb(705,200));
+        g.fillOval(705,230,20,20);
+        orbs.add(new Orb(705,230));
+        g.fillOval(705,260,20,20);
+        orbs.add(new Orb(705,260));
+        g.fillOval(730,260,20,20);
+        orbs.add(new Orb(730,260));
+        g.fillOval(755,260,20,20);
+        orbs.add(new Orb(755,260));
+        g.fillOval(730,230,20,20);
+        orbs.add(new Orb(730,230));
+        g.fillOval(755,200,20,20);
+        orbs.add(new Orb(755,200));
+        g.fillOval(730,200,20,20);
+        orbs.add(new Orb(730,200));
+        g.fillOval(420,350,25,25); // line
+        orbs.add(new Orb(420,350));
+        g.fillOval(470,350,25,25);
+        orbs.add(new Orb(470,350));
+        g.fillOval(520,350,25,25);
+        orbs.add(new Orb(520,350));
+        g.fillOval(570,350,25,25);
+        orbs.add(new Orb(570,350));
+        g.fillOval(620,350,25,25);
+        orbs.add(new Orb(620,350));
+        g.fillOval(670,350,25,25);
+        orbs.add(new Orb(670,350));
+        g.fillOval(720,350,25,25);
+        orbs.add(new Orb(720,350));
+        g.fillOval(770,350,25,25);
+        orbs.add(new Orb(770,350));
+        g.fillOval(820,350,25,25);
+        orbs.add(new Orb(820,350));
+        g.fillOval(870,350,25,25);
+        orbs.add(new Orb(870,350));
+        g.fillOval(920,350,25,25);
+        orbs.add(new Orb(920,350));
+        g.fillOval(970,350,25,25);
+        orbs.add(new Orb(970,350));
+        g.fillOval(1020,350,25,25);
+        orbs.add(new Orb(1020,350));
+        g.fillOval(1070,350,25,25);
+        orbs.add(new Orb(1070,350));
+        g.fillOval(1020,600,25,25);// bottom right square
+        orbs.add(new Orb(1020,600));
+        g.fillOval(1070,600,25,25);
+        orbs.add(new Orb(1070,600));
+        g.fillOval(1120,600,25,25);
+        orbs.add(new Orb(1120,600));
+        g.fillOval(1170,600,25,25);
+        orbs.add(new Orb(1170,600));
+        g.fillOval(1170,650,25,25);
+        orbs.add(new Orb(1170,650));
+        g.fillOval(1170,700,25,25);
+        orbs.add(new Orb(1170,700));
+        g.fillOval(1170,750,25,25);
+        orbs.add(new Orb(1170,750));
+        g.fillOval(1120,750,25,25);
+        orbs.add(new Orb(1120,750));
+                g.fillOval(1070,750,25,25);
+        orbs.add(new Orb(1070,750));
+             g.fillOval(1020,750,25,25);
+        orbs.add(new Orb(1020,750));
+                g.fillOval(1020,700,25,25);
+        orbs.add(new Orb(1020,700));
+                g.fillOval(1020,650,25,25);
+        orbs.add(new Orb(1020,650));
+                g.fillOval(1070,700,25,25);
+        orbs.add(new Orb(1070,700));
+                g.fillOval(1120,700,25,25);
+        orbs.add(new Orb(1120,700));
 
 
 
@@ -322,6 +492,14 @@ public class Display extends JComponent implements
         //highscoreInts.clear();
        // highscoreNames.add("Jude");
         //highscoreInts.add(100);
+
+        //change logo of JPanels
+        String pacLogo = "pacmenlogo.png";
+        url = getClass().getResource(pacLogo);
+        if (url == null)
+            throw new RuntimeException("Unable to load:  " + ghost4File);
+        frame.setIconImage(new ImageIcon(url).getImage());
+
 
         File scoreFile = new File("highscores.txt");
         ArrayList<String> currentHighscoreNames = new ArrayList<>();
@@ -697,7 +875,7 @@ public class Display extends JComponent implements
                                 }
                             }
                             orbs.remove(closest);
-                            g.clearRect(closest.getX(), closest.getY(), 25, 25);
+                            g.clearRect(closest.getX(), closest.getY(), closest.getSize(), closest.getSize());
                             score += pointFunction("orb");
                             frame.setTitle("Score: " + Integer.toString(score));
                         }

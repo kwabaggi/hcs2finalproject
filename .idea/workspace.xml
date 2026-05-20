@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.19 at 20:35 v2.1 minor changes">
+    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.19 at 20:56 v2.2 minor changes">
+      <change afterPath="$PROJECT_DIR$/pacmenlogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Orb.java" beforeDir="false" afterPath="$PROJECT_DIR$/Orb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Ghost.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -379,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779237323225</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="2026.05.19 at 20:56 v2.2 minor changes">
+      <option name="closed" value="true" />
+      <created>1779238578740</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1779238578740</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -412,7 +420,8 @@
     <MESSAGE value="2026.05.18 at 19:15 v1.8 (highscore base added)" />
     <MESSAGE value="2026.05.18 at 20:58 v2.0 (highscore working added)" />
     <MESSAGE value="2026.05.19 at 20:35 v2.1 minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026.05.19 at 20:35 v2.1 minor changes" />
+    <MESSAGE value="2026.05.19 at 20:56 v2.2 minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="2026.05.19 at 20:56 v2.2 minor changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
