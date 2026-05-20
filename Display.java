@@ -18,7 +18,7 @@ public class Display extends JComponent implements
     public static void main(String[] args)
     {
             Display display = new Display();
-        System.out.println(highscoreInts.size());
+        //System.out.println(highscoreInts.size());
             display.run();
     }
 
@@ -132,6 +132,7 @@ public class Display extends JComponent implements
         g.fillRect(1085,635,50,50);
         g.fillRect(1100,175,10,375);
         g.fillRect(925,175,175,10);
+
         g.fillRect(500,290,425,50);
         g.fillRect(850,410,10,175);
         g.fillRect(150,100,75,350);
@@ -142,315 +143,393 @@ public class Display extends JComponent implements
         orbs = new ArrayList<Orb>(); //update this arraylist with new orbs
         g.setColor(Color.WHITE);
         g.fillOval(60,50,25,25); //top left
-        orbs.add(new Orb(60, 50));
+        orbs.add(new Orb(60, 50, 25));
         g.fillOval(110,50,25,25); //directly right of top left
-        orbs.add(new Orb(110,50));
+        orbs.add(new Orb(110,50,25));
         g.fillOval(160,50,25,25);
-        orbs.add(new Orb(160,50));
+        orbs.add(new Orb(160,50,25));
         g.fillOval(210,50,25,25);
-        orbs.add(new Orb(210,50));
+        orbs.add(new Orb(210,50,25));
         g.fillOval(260,50,25,25);
-        orbs.add(new Orb(260,50));
+        orbs.add(new Orb(260,50,25));
         g.fillOval(310,50,25,25);
-        orbs.add(new Orb(310,50));
+        orbs.add(new Orb(310,50,25));
         g.fillOval(360,50,25,25);
-        orbs.add(new Orb(360,50));
+        orbs.add(new Orb(360,50,25));
         g.fillOval(410,50,25,25);
-        orbs.add(new Orb(410,50));
+        orbs.add(new Orb(410,50,25));
         g.fillOval(460,50,25,25);
-        orbs.add(new Orb(460,50));
+        orbs.add(new Orb(460,50,25));
         g.fillOval(460,100,25,25);
-        orbs.add(new Orb(460,100));
+        orbs.add(new Orb(460,100,25));
         g.fillOval(410,100,25,25);
-        orbs.add(new Orb(410,100));
+        orbs.add(new Orb(410,100,25));
         g.fillOval(360,100,25,25);
-        orbs.add(new Orb(360,100));
+        orbs.add(new Orb(360,100,25));
         g.fillOval(310,100,25,25);
-        orbs.add(new Orb(310,100));
+        orbs.add(new Orb(310,100,25));
         g.fillOval(260,100,25,25);
-        orbs.add(new Orb(260,100));
+        orbs.add(new Orb(260,100,25));
         g.fillOval(260,150,25,25);
-        orbs.add(new Orb(260,150));
+        orbs.add(new Orb(260,150,25));
         g.fillOval(260,200,25,25);
-        orbs.add(new Orb(260,200));
+        orbs.add(new Orb(260,200,25));
+        g.fillOval(300,300,25,25);
+        orbs.add(new Orb(300,300,25));
         g.fillOval(240,300,25,25);
-        orbs.add(new Orb(240,300));
+        orbs.add(new Orb(240,300,25));
         g.fillOval(360,300,25,25);
-        orbs.add(new Orb(360,300));
+        orbs.add(new Orb(360,300,25));
         g.fillOval(310,200,25,25);
-        orbs.add(new Orb(310,200));
+        orbs.add(new Orb(310,200,25));
         g.fillOval(360,200,25,25);
-        orbs.add(new Orb(360,200));
+        orbs.add(new Orb(360,200,25));
         g.fillOval(360,150,25,25);
-        orbs.add(new Orb(360,150));
+        orbs.add(new Orb(360,150,25));
         g.fillOval(310,150,25,25);
-        orbs.add(new Orb(310,150));
-        g.fillOval(750,125,25,25);
-        orbs.add(new Orb(750,125));
+        orbs.add(new Orb(310,150,25));
+        g.setColor(Color.YELLOW);
+        g.fillOval(750,125,35,35);
+        orbs.add(new Orb(750,125,35));
+        g.setColor(Color.WHITE);
         g.fillOval(60,100,25,25); //directly down from top left
-        orbs.add(new Orb(60, 100));
+        orbs.add(new Orb(60, 100,25));
         g.fillOval(60,150,25,25);
-        orbs.add(new Orb(60, 150));
+        orbs.add(new Orb(60, 150,25));
         g.fillOval(60,200,25,25);
-        orbs.add(new Orb(60, 200));
+        orbs.add(new Orb(60, 200,25));
         g.fillOval(60,250,25,25);
-        orbs.add(new Orb(60, 250));
+        orbs.add(new Orb(60, 250,25));
         g.fillOval(60,300,25,25);
-        orbs.add(new Orb(60, 300));
+        orbs.add(new Orb(60, 300,25));
         g.fillOval(60,350,25,25);
-        orbs.add(new Orb(60, 350));
+        orbs.add(new Orb(60, 350,25));
         g.fillOval(60,400,25,25);
-        orbs.add(new Orb(60, 400));
+        orbs.add(new Orb(60, 400,25));
         g.fillOval(60,450,25,25);
-        orbs.add(new Orb(60, 450));
+        orbs.add(new Orb(60, 450,25));
         g.fillOval(110,475,25,25); //directly right of middle segment
-        orbs.add(new Orb(110, 475));
+        orbs.add(new Orb(110, 475,25));
         g.fillOval(160,475,25,25);
-        orbs.add(new Orb(160, 475));
+        orbs.add(new Orb(160, 475,25));
         g.fillOval(210,475,25,25);
-        orbs.add(new Orb(210, 475));
+        orbs.add(new Orb(210, 475,25));
         g.fillOval(260,475,25,25);
-        orbs.add(new Orb(260, 475));
+        orbs.add(new Orb(260, 475,25));
         g.fillOval(310,475,25,25);
-        orbs.add(new Orb(310, 475));
+        orbs.add(new Orb(310, 475,25));
         g.fillOval(310,510,25,25);
-        orbs.add(new Orb(310, 510));
+        orbs.add(new Orb(310, 510,25));
         g.fillOval(310,560,25,25);
-        orbs.add(new Orb(310, 560));
+        orbs.add(new Orb(310, 560,25));
         g.fillOval(310,610,25,25);
-        orbs.add(new Orb(310, 610));
+        orbs.add(new Orb(310, 610,25));
         g.fillOval(310,660,25,25);
-        orbs.add(new Orb(310, 660));
+        orbs.add(new Orb(310, 660,25));
         g.fillOval(310,710,25,25);
-        orbs.add(new Orb(310, 710));
+        orbs.add(new Orb(310, 710,25));
         g.fillOval(260,710,25,25);
-        orbs.add(new Orb(260, 710));
+        orbs.add(new Orb(260, 710,25));
         g.fillOval(210,710,25,25);
-        orbs.add(new Orb(210, 710));
+        orbs.add(new Orb(210, 710,25));
         g.fillOval(160,710,25,25);
-        orbs.add(new Orb(160, 710));
+        orbs.add(new Orb(160, 710,25));
         g.fillOval(110,710,25,25);
-        orbs.add(new Orb(110, 710));
+        orbs.add(new Orb(110, 710,25));
         g.fillOval(60,500,25,25);
-        orbs.add(new Orb(60, 500));
+        orbs.add(new Orb(60, 500,25));
         g.fillOval(60,550,25,25);
-        orbs.add(new Orb(60, 550));
+        orbs.add(new Orb(60, 550,25));
         g.fillOval(60,600,25,25);
-        orbs.add(new Orb(60, 600));
+        orbs.add(new Orb(60, 600,25));
         g.fillOval(60,650,25,25);
-        orbs.add(new Orb(60, 650));
+        orbs.add(new Orb(60, 650,25));
         g.fillOval(60,700,25,25);
-        orbs.add(new Orb(60, 700)); //completes bottom left square
+        orbs.add(new Orb(60, 700,25)); //completes bottom left square
+        g.setColor(Color.YELLOW);
         g.fillOval(420,725,15,15); //VC
-        orbs.add(new Orb(420,725));
+        orbs.add(new Orb(420,725,15));
         g.fillOval(435,740,15,15);
-        orbs.add(new Orb(435,740));
+        orbs.add(new Orb(435,740,15));
         g.fillOval(465,740,15,15);
-        orbs.add(new Orb(465,740));
+        orbs.add(new Orb(465,740,15));
         g.fillOval(450,755,15,15);
-        orbs.add(new Orb(450,755));
+        orbs.add(new Orb(450,755,15));
         g.fillOval(480,725,15,15);
-        orbs.add(new Orb(480,725));
+        orbs.add(new Orb(480,725,15));
         g.fillOval(520,720,15,15);
-        orbs.add(new Orb(520,720));
+        orbs.add(new Orb(520,720,15));
         g.fillOval(520,754,15,15);
-        orbs.add(new Orb(520,754));
+        orbs.add(new Orb(520,754,15));
         g.fillOval(540,720,15,15);
-        orbs.add(new Orb(540,720));
+        orbs.add(new Orb(540,720,15));
         g.fillOval(540,754,15,15);
-        orbs.add(new Orb(540,754));
+        orbs.add(new Orb(540,754,15));
         g.fillOval(505,737,15,15);
-        orbs.add(new Orb(505,737));
+        orbs.add(new Orb(505,737,15));
+        g.setColor(Color.WHITE);
         g.fillOval(420,670,20,20); //E
-        orbs.add(new Orb(420,670));
+        orbs.add(new Orb(420,670,20));
         g.fillOval(450,670,20,20);
-        orbs.add(new Orb(450,670));
+        orbs.add(new Orb(450,670,20));
         g.fillOval(480,670,20,20);
-        orbs.add(new Orb(480,670));
+        orbs.add(new Orb(480,670,20));
         g.fillOval(420,640,20,20);
-        orbs.add(new Orb(420,640));
+        orbs.add(new Orb(420,640,20));
         g.fillOval(420,610,20,20);
-        orbs.add(new Orb(420,610));
+        orbs.add(new Orb(420,610,20));
         g.fillOval(420,580,20,20);
-        orbs.add(new Orb(420,580));
+        orbs.add(new Orb(420,580,20));
         g.fillOval(450,580,20,20);
-        orbs.add(new Orb(450,580));
+        orbs.add(new Orb(450,580,20));
         g.fillOval(480,580,20,20);
-        orbs.add(new Orb(480,580));
+        orbs.add(new Orb(480,580,20));
         g.fillOval(445,625,20,20);
-        orbs.add(new Orb(445,625));
+        orbs.add(new Orb(445,625,20));
         g.fillOval(475,625,20,20);
-        orbs.add(new Orb(475,625));
+        orbs.add(new Orb(475,625,20));
         g.fillOval(530,610,20,20); //T
-        orbs.add(new Orb(530,610));
+        orbs.add(new Orb(530,610,20));
         g.fillOval(560,610,20,20);
-        orbs.add(new Orb(560,610));
+        orbs.add(new Orb(560,610,20));
         g.fillOval(590,610,20,20);
-        orbs.add(new Orb(590,610));
+        orbs.add(new Orb(590,610,20));
         g.fillOval(560,580,20,20);
-        orbs.add(new Orb(560,580));
+        orbs.add(new Orb(560,580,20));
         g.fillOval(560,640,20,20);
-        orbs.add(new Orb(560,640));
+        orbs.add(new Orb(560,640,20));
         g.fillOval(560,670,20,20);
-        orbs.add(new Orb(560,670));
+        orbs.add(new Orb(560,670,20));
         g.fillOval(630,605,20,20); //H
-        orbs.add(new Orb(630,605));
+        orbs.add(new Orb(630,605,20));
         g.fillOval(630,575,20,20);
-        orbs.add(new Orb(630,575));
+        orbs.add(new Orb(630,575,20));
         g.fillOval(630,640,20,20);
-        orbs.add(new Orb(630,635));
+        orbs.add(new Orb(630,640,20));
         g.fillOval(630,670,20,20);
-        orbs.add(new Orb(630,665));
+        orbs.add(new Orb(630,670,20));
         g.fillOval(655,620,20,20);
-        orbs.add(new Orb(655,620));
+        orbs.add(new Orb(655,620,20));
         g.fillOval(685,620,20,20);
-        orbs.add(new Orb(685,620));
+        orbs.add(new Orb(685,620,20));
         g.fillOval(685,640,20,20);
-        orbs.add(new Orb(685,640));
+        orbs.add(new Orb(685,640,20));
         g.fillOval(685,670,20,20);
-        orbs.add(new Orb(685,670));
+        orbs.add(new Orb(685,670,20));
         g.fillOval(720,615,20,20); //A
-        orbs.add(new Orb(720,615));
+        orbs.add(new Orb(720,615,20));
         g.fillOval(750,615,20,20);
-        orbs.add(new Orb(750,615));
+        orbs.add(new Orb(750,615,20));
         g.fillOval(780,615,20,20);
-        orbs.add(new Orb(780,615));
+        orbs.add(new Orb(780,615,20));
         g.fillOval(720,645,20,20);
-        orbs.add(new Orb(720,645));
+        orbs.add(new Orb(720,645,20));
         g.fillOval(720,670,20,20);
-        orbs.add(new Orb(720,670));
+        orbs.add(new Orb(720,670,20));
         g.fillOval(750,670,20,20);
-        orbs.add(new Orb(750,670));
+        orbs.add(new Orb(750,670,20));
         g.fillOval(780,670,20,20);
-        orbs.add(new Orb(780,670));
+        orbs.add(new Orb(780,670,20));
         g.fillOval(780,640,20,20);
-        orbs.add(new Orb(780,640));
+        orbs.add(new Orb(780,640,20));
         g.fillOval(810,670,20,20);
-        orbs.add(new Orb(810,670));
+        orbs.add(new Orb(810,670,20));
         g.fillOval(850,670,20,20); //N
-        orbs.add(new Orb(850,670));
+        orbs.add(new Orb(850,670,20));
         g.fillOval(850,640,20,20);
-        orbs.add(new Orb(850,640));
+        orbs.add(new Orb(850,640,20));
         g.fillOval(850,610,20,20);
-        orbs.add(new Orb(850,610));
+        orbs.add(new Orb(850,610,20));
         g.fillOval(870,625,20,20);
-        orbs.add(new Orb(870,625));
+        orbs.add(new Orb(870,625,20));
         g.fillOval(900,625,20,20);
-        orbs.add(new Orb(900,625));
+        orbs.add(new Orb(900,625,20));
         g.fillOval(900,645,20,20);
-        orbs.add(new Orb(900,645));
+        orbs.add(new Orb(900,645,20));
         g.fillOval(900,670,20,20);
-        orbs.add(new Orb(900,670));
+        orbs.add(new Orb(900,670,20));
         g.fillOval(420,200,20,20); //J
-        orbs.add(new Orb(420,200));
+        orbs.add(new Orb(420,200,20));
         g.fillOval(450,200,20,20);
-        orbs.add(new Orb(450,200));
+        orbs.add(new Orb(450,200,20));
         g.fillOval(480,200,20,20);
-        orbs.add(new Orb(480,200));
+        orbs.add(new Orb(480,200,20));
         g.fillOval(450,230,20,20);
-        orbs.add(new Orb(450,230));
+        orbs.add(new Orb(450,230,20));
         g.fillOval(450,260,20,20);
-        orbs.add(new Orb(450,260));
+        orbs.add(new Orb(450,260,20));
         g.fillOval(425,260,20,20);
-        orbs.add(new Orb(425,260));
-        g.fillOval(525,200,20,20); //U
-        orbs.add(new Orb(525,200));
-        g.fillOval(525,230,20,20);
-        orbs.add(new Orb(525,230));
-        g.fillOval(525,260,20,20);
-        orbs.add(new Orb(525,260));
-        g.fillOval(550,260,20,20);
-        orbs.add(new Orb(550,260));
-        g.fillOval(575,260,20,20);
-        orbs.add(new Orb(575,260));
-        g.fillOval(575,230,20,20);
-        orbs.add(new Orb(575,230));
-        g.fillOval(575,200,20,20);
-        orbs.add(new Orb(575,200));
-        g.fillOval(620,200,20,20); //D
-        orbs.add(new Orb(620,200));
-        g.fillOval(620,230,20,20);
-        orbs.add(new Orb(620,230));
-        g.fillOval(620,260,20,20);
-        orbs.add(new Orb(620,260));
-        g.fillOval(645,215,20,20);
-        orbs.add(new Orb(645,215));
-        g.fillOval(645,245,20,20);
-        orbs.add(new Orb(645,245));
-        g.fillOval(660,230,20,20);
-        orbs.add(new Orb(660,230));
-        g.fillOval(705,200,20,20); //Jude's E
-        orbs.add(new Orb(705,200));
-        g.fillOval(705,230,20,20);
-        orbs.add(new Orb(705,230));
-        g.fillOval(705,260,20,20);
-        orbs.add(new Orb(705,260));
-        g.fillOval(730,260,20,20);
-        orbs.add(new Orb(730,260));
-        g.fillOval(755,260,20,20);
-        orbs.add(new Orb(755,260));
-        g.fillOval(730,230,20,20);
-        orbs.add(new Orb(730,230));
-        g.fillOval(755,200,20,20);
-        orbs.add(new Orb(755,200));
-        g.fillOval(730,200,20,20);
-        orbs.add(new Orb(730,200));
+        orbs.add(new Orb(425,260,20));
+        g.fillOval(530,195,20,20); //U
+        orbs.add(new Orb(530,195,20));
+        g.fillOval(530,225,20,20);
+        orbs.add(new Orb(530,225,20));
+        g.fillOval(530,255,20,20);
+        orbs.add(new Orb(530,255,20));
+        g.fillOval(555,255,20,20);
+        orbs.add(new Orb(555,255,20));
+        g.fillOval(580,255,20,20);
+        orbs.add(new Orb(580,255,20));
+        g.fillOval(580,225,20,20);
+        orbs.add(new Orb(580,225,20));
+        g.fillOval(580,195,20,20);
+        orbs.add(new Orb(580,195,20));
+        g.fillOval(625,195,20,20); //D
+        orbs.add(new Orb(625,195,20));
+        g.fillOval(625,225,20,20);
+        orbs.add(new Orb(625,225,20));
+        g.fillOval(625,255,20,20);
+        orbs.add(new Orb(625,255,20));
+        g.fillOval(650,210,20,20);
+        orbs.add(new Orb(650,210,20));
+        g.fillOval(650,240,20,20);
+        orbs.add(new Orb(650,240,20));
+        g.fillOval(665,225,20,20);
+        orbs.add(new Orb(665,225,20));
+        g.fillOval(710,195,20,20); //Jude's E
+        orbs.add(new Orb(710,195,20));
+        g.fillOval(710,225,20,20);
+        orbs.add(new Orb(710,225,20));
+        g.fillOval(710,255,20,20);
+        orbs.add(new Orb(710,255,20));
+        g.fillOval(735,255,20,20);
+        orbs.add(new Orb(735,255,20));
+        g.fillOval(760,255,20,20);
+        orbs.add(new Orb(760,255,20));
+        g.fillOval(735,225,20,20);
+        orbs.add(new Orb(735,225,20));
+        g.fillOval(760,195,20,20);
+        orbs.add(new Orb(760,195,20));
+        g.fillOval(735,195,20,20);
+        orbs.add(new Orb(735,195,20));
         g.fillOval(420,350,25,25); // line
-        orbs.add(new Orb(420,350));
+        orbs.add(new Orb(420,350,25));
         g.fillOval(470,350,25,25);
-        orbs.add(new Orb(470,350));
+        orbs.add(new Orb(470,350,25));
         g.fillOval(520,350,25,25);
-        orbs.add(new Orb(520,350));
+        orbs.add(new Orb(520,350,25));
         g.fillOval(570,350,25,25);
-        orbs.add(new Orb(570,350));
+        orbs.add(new Orb(570,350,25));
         g.fillOval(620,350,25,25);
-        orbs.add(new Orb(620,350));
+        orbs.add(new Orb(620,350,25));
         g.fillOval(670,350,25,25);
-        orbs.add(new Orb(670,350));
+        orbs.add(new Orb(670,350,25));
         g.fillOval(720,350,25,25);
-        orbs.add(new Orb(720,350));
+        orbs.add(new Orb(720,350,25));
         g.fillOval(770,350,25,25);
-        orbs.add(new Orb(770,350));
+        orbs.add(new Orb(770,350,25));
         g.fillOval(820,350,25,25);
-        orbs.add(new Orb(820,350));
+        orbs.add(new Orb(820,350,25));
         g.fillOval(870,350,25,25);
-        orbs.add(new Orb(870,350));
+        orbs.add(new Orb(870,350,25));
         g.fillOval(920,350,25,25);
-        orbs.add(new Orb(920,350));
+        orbs.add(new Orb(920,350,25));
         g.fillOval(970,350,25,25);
-        orbs.add(new Orb(970,350));
+        orbs.add(new Orb(970,350,25));
         g.fillOval(1020,350,25,25);
-        orbs.add(new Orb(1020,350));
+        orbs.add(new Orb(1020,350,25));
         g.fillOval(1070,350,25,25);
-        orbs.add(new Orb(1070,350));
+        orbs.add(new Orb(1070,350,25));
+        g.setColor(Color.YELLOW);
+        g.fillOval(1050,200,25,25);
+        orbs.add(new Orb(1050,200,25));
+        g.fillOval(1020,200,25,25);
+        orbs.add(new Orb(1020,200,25));
+        g.fillOval(1020,230,25,25);
+        orbs.add(new Orb(1020,230,25));
+        g.fillOval(1050,230,25,25);
+        orbs.add(new Orb(1050,230,25));
+        g.setColor(Color.WHITE);
         g.fillOval(1020,600,25,25);// bottom right square
-        orbs.add(new Orb(1020,600));
+        orbs.add(new Orb(1020,600,25));
         g.fillOval(1070,600,25,25);
-        orbs.add(new Orb(1070,600));
+        orbs.add(new Orb(1070,600,25));
         g.fillOval(1120,600,25,25);
-        orbs.add(new Orb(1120,600));
+        orbs.add(new Orb(1120,600,25));
+        g.fillOval(1170,550,25,25);
+        orbs.add(new Orb(1170,550,25));
+        g.fillOval(1170,500,25,25);
+        orbs.add(new Orb(1170,500,25));
+        g.fillOval(1170,450,25,25);
+        orbs.add(new Orb(1170,450,25));
+        g.fillOval(1170,400,25,25);
+        orbs.add(new Orb(1170,400,25));
+        g.fillOval(1170,360,25,25);
+        orbs.add(new Orb(1170,360,25));
         g.fillOval(1170,600,25,25);
-        orbs.add(new Orb(1170,600));
+        orbs.add(new Orb(1170,600,25));
         g.fillOval(1170,650,25,25);
-        orbs.add(new Orb(1170,650));
+        orbs.add(new Orb(1170,650,25));
         g.fillOval(1170,700,25,25);
-        orbs.add(new Orb(1170,700));
+        orbs.add(new Orb(1170,700,25));
         g.fillOval(1170,750,25,25);
-        orbs.add(new Orb(1170,750));
+        orbs.add(new Orb(1170,750,25));
         g.fillOval(1120,750,25,25);
-        orbs.add(new Orb(1120,750));
-                g.fillOval(1070,750,25,25);
-        orbs.add(new Orb(1070,750));
-             g.fillOval(1020,750,25,25);
-        orbs.add(new Orb(1020,750));
-                g.fillOval(1020,700,25,25);
-        orbs.add(new Orb(1020,700));
-                g.fillOval(1020,650,25,25);
-        orbs.add(new Orb(1020,650));
-                g.fillOval(1070,700,25,25);
-        orbs.add(new Orb(1070,700));
-                g.fillOval(1120,700,25,25);
-        orbs.add(new Orb(1120,700));
+        orbs.add(new Orb(1120,750,25));
+        g.fillOval(1070,750,25,25);
+        orbs.add(new Orb(1070,750,25));
+        g.fillOval(1020,750,25,25);
+        orbs.add(new Orb(1020,750,25));
+        g.fillOval(1020,700,25,25);
+        orbs.add(new Orb(1020,700,25));
+        g.fillOval(1020,650,25,25);
+        orbs.add(new Orb(1020,650,25));
+        g.fillOval(1070,700,25,25);
+        orbs.add(new Orb(1070,700,25));
+        g.fillOval(1120,700,25,25);
+        orbs.add(new Orb(1120,700,25));
+        g.fillOval(520,50,25,25); //top line
+        orbs.add(new Orb(520,50,25));
+        g.fillOval(570,50,25,25);
+        orbs.add(new Orb(570,50,25));
+        g.fillOval(620,50,25,25);
+        orbs.add(new Orb(620,50,25));
+        g.fillOval(670,50,25,25);
+        orbs.add(new Orb(670,50,25));
+        g.fillOval(720,50,25,25);
+        orbs.add(new Orb(720,50,25));
+        g.fillOval(770,50,25,25);
+        orbs.add(new Orb(770,50,25));
+        g.fillOval(820,50,25,25);
+        orbs.add(new Orb(820,50,25));
+        g.fillOval(870,50,25,25);
+        orbs.add(new Orb(870,50,25));
+        g.fillOval(920,50,25,25);
+        orbs.add(new Orb(920,50,25));
+        g.fillOval(970,50,25,25);
+        orbs.add(new Orb(970,50,25));
+        g.fillOval(1020,50,25,25);
+        orbs.add(new Orb(1020,50,25));
+        g.fillOval(1070,50,25,25);
+        orbs.add(new Orb(1070,50,25));
+        g.fillOval(1120,50,25,25);
+        orbs.add(new Orb(1120,50,25));
+        g.fillOval(1170,50,25,25);
+        orbs.add(new Orb(1170,50,25));
+        g.fillOval(1170,100,25,25);
+        orbs.add(new Orb(1170,100,25));
+        g.fillOval(1170,150,25,25);
+        orbs.add(new Orb(1170,150,25));
+        g.fillOval(1170,200,25,25);
+        orbs.add(new Orb(1170,200,25));
+        g.fillOval(1170,250,25,25);
+        orbs.add(new Orb(1170,250,25));
+        g.fillOval(1170,300,25,25);
+        orbs.add(new Orb(1170,300,25));
+        g.fillOval(1120,100,25,25);
+        orbs.add(new Orb(1120,100,25));
+        g.fillOval(1070,100,25,25);
+        orbs.add(new Orb(1070,100,25));
+        g.fillOval(1020,100,25,25);
+        orbs.add(new Orb(1020,100,25));
+        g.fillOval(970,100,25,25);
+        orbs.add(new Orb(970,100,25));
+        g.fillOval(920,100,25,25);
+        orbs.add(new Orb(920,100,25));
+        g.fillOval(870,100,25,25);
+        orbs.add(new Orb(870,100,25));
+        g.fillOval(820,100,25,25);
+        orbs.add(new Orb(820,100,25));
 
 
 
@@ -534,8 +613,18 @@ public class Display extends JComponent implements
         }
 
         Collections.sort(currentHighscoreInts, Comparator.reverseOrder());
-        for(int num : currentHighscoreInts)
-            highscoreNames.add(findIndexOf(currentHighscoreInts, num), currentHighscoreNames.get(findIndexOf(highscoreInts, num)));
+        for(int num : currentHighscoreInts){
+            String str = currentHighscoreNames.get(findIndexOf(highscoreInts, num));
+            if(!highscoreNames.contains(str))
+                highscoreNames.add(findIndexOf(currentHighscoreInts, num), str);
+            else{
+                ArrayList<Integer> duplicates = new ArrayList<>();
+                for(int i = 0; i < highscoreNames.size(); i ++){
+                   // if(highscoreNames.get(i).equals(str))
+                      //  duplicates.add(
+                }
+            }
+        }
         highscoreInts = currentHighscoreInts;
 
         //highscore JFrame
@@ -803,7 +892,7 @@ public class Display extends JComponent implements
                     else if(ghost.isRunAway() && dist < 40 && ghost.getValidToKilled()){
                         //g.clearRect(ghost.getX(), ghost.getY(), ghost.getImageWidth(), ghost.getImageHeight());
                         ghost.setKill();
-                        score += pointFunction("ghost");
+                        score += pointFunction("ghost", new Orb(0, 0, 0));
                         frame.setTitle("Score: " + Integer.toString(score));
                     }
                 }
@@ -873,10 +962,10 @@ public class Display extends JComponent implements
                     Ghost.setCanRunAway();
                 } else openerTimer++;
 
-                for (int x = pacCenterX - 5; x < pacCenterX + 5; x++) { //check for orbs
-                    for(int y = pacCenterY - 5; y < pacCenterY + 5; y++) {
+                for (int x = pacCenterX - 7; x < pacCenterX + 7; x++) { //check for orbs
+                    for(int y = pacCenterY - 7; y < pacCenterY + 7; y++) {
                         Color col = new Color(maze.getRGB(x, y));
-                        if (col.equals(Color.WHITE)) {
+                        if (col.equals(Color.WHITE) || col.equals(Color.YELLOW)) {
                                 playAudio("pacman_chomp.wav");
                             Orb closest = orbs.get(0);
                             double minDist = distance(closest.getX(), closest.getY(), pacCenterX, pacCenterY);
@@ -889,7 +978,7 @@ public class Display extends JComponent implements
                             }
                             orbs.remove(closest);
                             g.clearRect(closest.getX(), closest.getY(), closest.getSize(), closest.getSize());
-                            score += pointFunction("orb");
+                            score += pointFunction("orb", closest);
                             frame.setTitle("Score: " + Integer.toString(score));
                         }
                     }
@@ -952,9 +1041,9 @@ public class Display extends JComponent implements
         return Math.sqrt(Math.pow((double)loc2.getX() - loc1.getX(), 2) + Math.pow((double)loc2.getY() - loc1.getY(), 2));
     }
 
-    public int pointFunction(String a){
+    public int pointFunction(String a, Orb orb){
         if(a.equals("orb"))
-            return (int)Math.pow(100, -1*((gameTime-200)/200));
+            return (int)Math.pow(orb.getValue(), -1*((gameTime-200)/200));
         else if(a.equals("ghost"))
             return (int)Math.pow(1000, -1*((gameTime-200)/200));
         else return -1;
