@@ -1139,34 +1139,45 @@ public class Display extends JComponent implements
             File scoreFile = new File("highscores.txt");
             ArrayList<String> currentHighscoreNames = new ArrayList<>();
             ArrayList<Integer> currentHighscoreInts = new ArrayList<>();
-            try{
+            try {
                 Scanner scan = new Scanner(scoreFile);
                 int i = 0;
-                while(scan.hasNextLine() && i < 9){ //only read the first ten lines and dispose the other ones
+                while (scan.hasNextLine() && i < 9) { //only read the first ten lines and dispose the other ones
                     currentHighscoreNames.add(scan.next());
                     int a = Integer.parseInt(scan.next());
                     currentHighscoreInts.add(a);
-                    i ++;
+                    i++;
                 }
                 scan.close();
-
+                if (currentHighscoreInts.size() == 1) {
+                    if (currentHighscoreInts.get(0) < score) {
+                        currentHighscoreInts.add(0, score);
+                        currentHighscoreNames.add(0, name);
+                    } else if (currentHighscoreInts.get(0) >= score) {
+                        currentHighscoreInts.add(score);
+                        currentHighscoreNames.add(name);
+                    }
+                }
+                else{
                 ArrayList<Pair> pairList = new ArrayList<>();
-                for(int b = 0; b < currentHighscoreNames.size(); b++)
+                for (int b = 0; b < currentHighscoreNames.size(); b++)
                     pairList.add(new Pair(currentHighscoreNames.get(b), currentHighscoreInts.get(b)));
+                pairList.add(new Pair(name, score));
                 pairList.sort((p1, p2) -> Integer.compare(p2.getNum(), p1.getNum()));
                 currentHighscoreNames.clear();
                 currentHighscoreInts.clear();
-                for(Pair p : pairList){
+                for (Pair p : pairList) {
                     currentHighscoreNames.add(p.getString());
                     currentHighscoreInts.add(p.getNum());
                 }
+            }
                 new PrintWriter("highscores.txt").close();
                 PrintWriter writer = new PrintWriter("highscores.txt");
-                writer.print(name + " ");
-                writer.println(score);
                 for(i = 0; i < currentHighscoreNames.size(); i++){
                     writer.print(currentHighscoreNames.get(i) + " ");
-                    writer.println(currentHighscoreInts.get(i));
+                    writer.print(currentHighscoreInts.get(i));
+                    if(i+1 < currentHighscoreNames.size())
+                        writer.println();
                 }
                 writer.close();
             }

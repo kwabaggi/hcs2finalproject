@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.20 at 10:29 v4">
-      <change afterPath="$PROJECT_DIR$/Pair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ghosttoblue.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ghosttohome.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/ghosttoblue.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/ghosttohome.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../octoberhackathon/octoberhackathon.iml" afterDir="false" />
+    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.20 at 13:08 v5 (final)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Ghost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/highscores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/pacman_chomp.wav" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/pacman_chomp.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pacman_chomp.wav" beforeDir="false" afterPath="$PROJECT_DIR$/pacman_chomp.wav" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -445,7 +433,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779287385022</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="2026.05.20 at 13:08 v5 (final)">
+      <option name="closed" value="true" />
+      <created>1779296898205</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1779296898205</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -460,7 +456,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New version" />
     <MESSAGE value="Changes by shengliu" />
     <MESSAGE value="New changes" />
     <MESSAGE value="Changes by jude" />
@@ -485,18 +480,8 @@
     <MESSAGE value="2026.05.20 at 08:33 v3" />
     <MESSAGE value="2026.05.20 at 09:36 v3" />
     <MESSAGE value="2026.05.20 at 10:29 v4" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026.05.20 at 10:29 v4" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Display.java</url>
-          <line>1163</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="2026.05.20 at 13:08 v5 (final)" />
+    <option name="LAST_COMMIT_MESSAGE" value="2026.05.20 at 13:08 v5 (final)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
