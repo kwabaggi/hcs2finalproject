@@ -615,17 +615,22 @@ public class Display extends JComponent implements
         Collections.sort(currentHighscoreInts, Comparator.reverseOrder());
         for(int num : currentHighscoreInts){
             String str = currentHighscoreNames.get(findIndexOf(highscoreInts, num));
-            if(!highscoreNames.contains(str))
                 highscoreNames.add(findIndexOf(currentHighscoreInts, num), str);
-            else{
-                ArrayList<Integer> duplicates = new ArrayList<>();
-                for(int i = 0; i < highscoreNames.size(); i ++){
-                   // if(highscoreNames.get(i).equals(str))
-                      //  duplicates.add(
+        }
+        highscoreInts = currentHighscoreInts;
+        for(int j = 0; j < highscoreNames.size(); j++){
+            String name = highscoreNames.get(j);
+            if(getInstances(highscoreNames, name) > 1){
+                int first = findIndexOf(highscoreNames, name);
+                for(int i = first+1; i < highscoreNames.size(); i++){
+                    if(highscoreNames.get(i).equals(name)){
+                        highscoreNames.remove(i);
+                        highscoreInts.remove(i);
+                        i--;
+                    }
                 }
             }
         }
-        highscoreInts = currentHighscoreInts;
 
         //highscore JFrame
         JFrame highscoreFrame = new JFrame();  //create window
@@ -1172,7 +1177,7 @@ public class Display extends JComponent implements
         }
     }
 
-    public <E> int findIndexOf(List<E> list, int obj){
+    public <E> int findIndexOf(List<E> list, E obj){
         for(int i = 0; i < list.size(); i ++){
             if(list.get(i).equals(obj))
                 return i;
@@ -1195,5 +1200,23 @@ public class Display extends JComponent implements
         else if(name.equals("Mr. B"))
             return ghost4ImageIcon;
         else return null;
+    }
+
+    public int getMax(ArrayList<Integer> list){
+        int max = list.get(0);
+        for(int a : list){
+            if(a > max)
+                max = a;
+        }
+        return max;
+    }
+
+    public <E>int getInstances(ArrayList<E> list, E obj){
+        int total = 0;
+        for(E a : list){
+            if(a.equals(obj))
+                total++;
+        }
+        return total;
     }
 }

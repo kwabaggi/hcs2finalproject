@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.20 at 08:33 v3">
+    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.20 at 09:36 v3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Orb.java" beforeDir="false" afterPath="$PROJECT_DIR$/Orb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Orb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Orb.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/highscores.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -420,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779280449029</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="2026.05.20 at 09:36 v3">
+      <option name="closed" value="true" />
+      <created>1779284175253</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1779284175253</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -458,7 +464,8 @@
     <MESSAGE value="2026.05.19 at 21:55 v2.25 NOT WORKING (need to fix orb)" />
     <MESSAGE value="2026.05.19 at 22:35 v2.3 NOT WORKING (need to fix orb)" />
     <MESSAGE value="2026.05.20 at 08:33 v3" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026.05.20 at 08:33 v3" />
+    <MESSAGE value="2026.05.20 at 09:36 v3" />
+    <option name="LAST_COMMIT_MESSAGE" value="2026.05.20 at 09:36 v3" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
