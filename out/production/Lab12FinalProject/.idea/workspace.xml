@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.17 at 21:55 v1.70" />
+    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.18 at 20:58 v2.0 (highscore working added)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDo.md" beforeDir="false" afterPath="$PROJECT_DIR$/ToDo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="27" />
+    <option name="cachedIndexableFilesCount" value="28" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -348,7 +352,23 @@
       <option name="project" value="LOCAL" />
       <updated>1779069324945</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="2026.05.18 at 19:15 v1.8 (highscore base added)">
+      <option name="closed" value="true" />
+      <created>1779146118989</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1779146118989</updated>
+    </task>
+    <task id="LOCAL-00024" summary="2026.05.18 at 20:58 v2.0 (highscore working added)">
+      <option name="closed" value="true" />
+      <created>1779152312783</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1779152312783</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -378,7 +398,9 @@
     <MESSAGE value="2026.05.16 at 20:10 v1.6" />
     <MESSAGE value="2026.05.17 at 21:55 v1.7" />
     <MESSAGE value="2026.05.17 at 21:55 v1.70" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026.05.17 at 21:55 v1.70" />
+    <MESSAGE value="2026.05.18 at 19:15 v1.8 (highscore base added)" />
+    <MESSAGE value="2026.05.18 at 20:58 v2.0 (highscore working added)" />
+    <option name="LAST_COMMIT_MESSAGE" value="2026.05.18 at 20:58 v2.0 (highscore working added)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

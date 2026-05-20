@@ -18,6 +18,7 @@ public class Ghost {
     private int centerY;
     private boolean onlyGoingLeft;
     private int leftTimer;
+    static boolean canRunAway;
 
     public Ghost(int imageX, int imageY, Display disp, int type){
         this.imageX = imageX;
@@ -54,7 +55,7 @@ public class Ghost {
                 display.respawnGhost(type, this);
             }
         }
-        else if((int)(Math.random()*1000) == 0) {
+        else if(canRunAway && (int)(Math.random()*1250) == 0) {
             runAway = true;
             display.changeGhostImage(type, "vulnerableghost.png");
         }
@@ -207,5 +208,9 @@ public class Ghost {
 
     public int getCenterY(){
         return centerY;
+    }
+
+    public static void setCanRunAway(){
+        canRunAway = true;
     }
 }

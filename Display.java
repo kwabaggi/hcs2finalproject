@@ -134,62 +134,146 @@ public class Display extends JComponent implements
 
         orbs = new ArrayList<Orb>(); //update this arraylist with new orbs
         g.setColor(Color.WHITE);
-                g.fillOval(60,50,25,25);
+        g.fillOval(60,50,25,25); //top left
         orbs.add(new Orb(60, 50));
-                g.fillOval(60,100,25,25);
+        g.fillOval(110,50,25,25); //directly right of top left
+        orbs.add(new Orb(110,50));
+        g.fillOval(160,50,25,25);
+        orbs.add(new Orb(160,50));
+        g.fillOval(210,50,25,25);
+        orbs.add(new Orb(210,50));
+        g.fillOval(260,50,25,25);
+        orbs.add(new Orb(260,50));
+        g.fillOval(310,50,25,25);
+        orbs.add(new Orb(310,50));
+        g.fillOval(360,50,25,25);
+        orbs.add(new Orb(360,50));
+        g.fillOval(410,50,25,25);
+        orbs.add(new Orb(410,50));
+        g.fillOval(460,50,25,25);
+        orbs.add(new Orb(460,50));
+        g.fillOval(460,100,25,25);
+        orbs.add(new Orb(460,100));
+        g.fillOval(410,100,25,25);
+        orbs.add(new Orb(410,100));
+        g.fillOval(360,100,25,25);
+        orbs.add(new Orb(360,100));
+        g.fillOval(310,100,25,25);
+        orbs.add(new Orb(310,100));
+        g.fillOval(260,100,25,25);
+        orbs.add(new Orb(260,100));
+        g.fillOval(260,150,25,25);
+        orbs.add(new Orb(260,150));
+        g.fillOval(260,200,25,25);
+        orbs.add(new Orb(260,200));
+        g.fillOval(240,300,25,25);
+        orbs.add(new Orb(240,300));
+        g.fillOval(360,300,25,25);
+        orbs.add(new Orb(360,300));
+        g.fillOval(310,200,25,25);
+        orbs.add(new Orb(310,200));
+        g.fillOval(360,200,25,25);
+        orbs.add(new Orb(360,200));
+        g.fillOval(360,150,25,25);
+        orbs.add(new Orb(360,150));
+        g.fillOval(310,150,25,25);
+        orbs.add(new Orb(310,150));
+        g.fillOval(750,125,25,25);
+        orbs.add(new Orb(750,125));
+        g.fillOval(60,100,25,25); //directly down from top left
         orbs.add(new Orb(60, 100));
-                g.fillOval(60,150,25,25);
+        g.fillOval(60,150,25,25);
         orbs.add(new Orb(60, 150));
-                g.fillOval(60,200,25,25);
+        g.fillOval(60,200,25,25);
         orbs.add(new Orb(60, 200));
-                g.fillOval(60,250,25,25);
+        g.fillOval(60,250,25,25);
         orbs.add(new Orb(60, 250));
-                g.fillOval(60,300,25,25);
+        g.fillOval(60,300,25,25);
         orbs.add(new Orb(60, 300));
-                g.fillOval(60,350,25,25);
+        g.fillOval(60,350,25,25);
         orbs.add(new Orb(60, 350));
-                g.fillOval(60,400,25,25);
+        g.fillOval(60,400,25,25);
         orbs.add(new Orb(60, 400));
-                g.fillOval(60,450,25,25);
+        g.fillOval(60,450,25,25);
         orbs.add(new Orb(60, 450));
-                g.fillOval(110,475,25,25);
+        g.fillOval(110,475,25,25); //directly right of middle segment
         orbs.add(new Orb(110, 475));
-                g.fillOval(160,475,25,25);
+        g.fillOval(160,475,25,25);
         orbs.add(new Orb(160, 475));
-                g.fillOval(210,475,25,25);
+        g.fillOval(210,475,25,25);
         orbs.add(new Orb(210, 475));
-                g.fillOval(260,475,25,25);
+        g.fillOval(260,475,25,25);
         orbs.add(new Orb(260, 475));
-                g.fillOval(310,475,25,25);
+        g.fillOval(310,475,25,25);
         orbs.add(new Orb(310, 475));
-                g.fillOval(310,510,25,25);
+        g.fillOval(310,510,25,25);
         orbs.add(new Orb(310, 510));
-                g.fillOval(310,560,25,25);
+        g.fillOval(310,560,25,25);
         orbs.add(new Orb(310, 560));
-                g.fillOval(310,610,25,25);
+        g.fillOval(310,610,25,25);
         orbs.add(new Orb(310, 610));
-                g.fillOval(310,660,25,25);
+        g.fillOval(310,660,25,25);
         orbs.add(new Orb(310, 660));
-                g.fillOval(310,710,25,25);
+        g.fillOval(310,710,25,25);
         orbs.add(new Orb(310, 710));
-                g.fillOval(260,710,25,25);
+        g.fillOval(260,710,25,25);
         orbs.add(new Orb(260, 710));
-                g.fillOval(210,710,25,25);
+        g.fillOval(210,710,25,25);
         orbs.add(new Orb(210, 710));
-                g.fillOval(160,710,25,25);
+        g.fillOval(160,710,25,25);
         orbs.add(new Orb(160, 710));
-                g.fillOval(110,710,25,25);
+        g.fillOval(110,710,25,25);
         orbs.add(new Orb(110, 710));
-                g.fillOval(60,500,25,25);
+        g.fillOval(60,500,25,25);
         orbs.add(new Orb(60, 500));
-                g.fillOval(60,550,25,25);
+        g.fillOval(60,550,25,25);
         orbs.add(new Orb(60, 550));
-                g.fillOval(60,600,25,25);
+        g.fillOval(60,600,25,25);
         orbs.add(new Orb(60, 600));
-                g.fillOval(60,650,25,25);
+        g.fillOval(60,650,25,25);
         orbs.add(new Orb(60, 650));
-                g.fillOval(60,700,25,25);
-        orbs.add(new Orb(60, 700));
+        g.fillOval(60,700,25,25);
+        orbs.add(new Orb(60, 700)); //completes bottom left square
+        g.fillOval(420,725,15,15); //VC
+        orbs.add(new Orb(420,725));
+        g.fillOval(435,740,15,15);
+        orbs.add(new Orb(435,740));
+        g.fillOval(465,740,15,15);
+        orbs.add(new Orb(465,740));
+        g.fillOval(450,755,15,15);
+        orbs.add(new Orb(450,755));
+        g.fillOval(480,725,15,15);
+        orbs.add(new Orb(480,725));
+        g.fillOval(520,720,15,15);
+        orbs.add(new Orb(520,720));
+        g.fillOval(520,754,15,15);
+        orbs.add(new Orb(520,754));
+        g.fillOval(540,720,15,15);
+        orbs.add(new Orb(540,720));
+        g.fillOval(540,754,15,15);
+        orbs.add(new Orb(540,754));
+        g.fillOval(505,737,15,15);
+        orbs.add(new Orb(505,737));
+        g.fillOval(420,670,20,20); //ETHAN
+        orbs.add(new Orb(420,670));
+        g.fillOval(450,670,20,20);
+        orbs.add(new Orb(450,670));
+        g.fillOval(480,670,20,20);
+        orbs.add(new Orb(480,670));
+        g.fillOval(420,640,20,20);
+        orbs.add(new Orb(420,640));
+        g.fillOval(420,610,20,20);
+        orbs.add(new Orb(420,610));
+        g.fillOval(420,580,20,20);
+        orbs.add(new Orb(420,580));
+        g.fillOval(450,580,20,20);
+        orbs.add(new Orb(450,580));
+        g.fillOval(480,580,20,20);
+        orbs.add(new Orb(480,580));
+        g.fillOval(450,625,20,20);
+        orbs.add(new Orb(450,625));
+        g.fillOval(480,625,20,20);
+        orbs.add(new Orb(480,625));
 
 
 
@@ -453,7 +537,7 @@ public class Display extends JComponent implements
                 if(imageX > 0 && notOnWall("left"))
                     imageX --;
                 else if(!notOnWall("left")) {
-                    this.direction = getNewDirection("left");
+                    getNewDirection();
                     return;
                 }
             }
@@ -463,7 +547,7 @@ public class Display extends JComponent implements
                 if(imageX < displayWidth-60 && notOnWall("right"))
                     imageX ++;
                 else if(!notOnWall("right")) {
-                    this.direction = getNewDirection("right");
+                    getNewDirection();
                     return;
                 }
             }
@@ -473,7 +557,7 @@ public class Display extends JComponent implements
                 if(imageY > 0 && notOnWall("up"))
                     imageY --;
                 else if(!notOnWall("up")) {
-                    this.direction = getNewDirection("up");
+                    getNewDirection();
                     return;
                 }
             }
@@ -483,7 +567,7 @@ public class Display extends JComponent implements
                 if(imageY < displayHeight-55 && notOnWall("down"))
                     imageY ++;
                 else if(!notOnWall("down")) {
-                    this.direction = getNewDirection("down");
+                    getNewDirection();
                     return;
                 }
             }
@@ -595,6 +679,7 @@ public class Display extends JComponent implements
                     g.clearRect(displayWidth / 2 - (150 / 2), (displayHeight / 2 - (150 / 2)) + 80, 10, 150);
                     g.clearRect(displayWidth / 2 + (150 / 2), (displayHeight / 2 - (150 / 2)) + 80, 10, 150);
                     g.clearRect(displayWidth / 2 - (150 / 2), (displayHeight / 2 + (150 / 2)) + 80, 160, 10);
+                    Ghost.setCanRunAway();
                 } else openerTimer++;
 
                 for (int x = pacCenterX - 5; x < pacCenterX + 5; x++) { //check for orbs
@@ -734,38 +819,15 @@ public class Display extends JComponent implements
         return pacCenterY;
     }
 
-    public String getNewDirection(String omitted){
-        String direction = null;
-        int dir = (int) (Math.random() * 3);
-        if(omitted.equals("left")) {
-            if(dir == 0)
-                direction = "right";
-            else if(dir == 1)
-                direction = "up";
-            else direction = "down";
-        }
-        else if(omitted.equals("right")){
-            if(dir == 0)
-                direction = "left";
-            else if(dir == 1)
-                direction = "up";
-            else direction = "down";
-        }
-        else if(omitted.equals("up")){
-            if(dir == 0)
-                direction = "left";
-            else if(dir == 1)
-                direction = "right";
-            else direction = "down";
-        }
-        else if(omitted.equals("down")){
-            if(dir == 0)
-                direction = "left";
-            else if(dir == 1)
-                direction = "up";
-            else direction = "right";
-        }
-        return direction;
+    public void getNewDirection(){
+        if(direction.equals("left"))
+            direction = "right";
+        else if(direction.equals("right"))
+            direction = "left";
+        else if(direction.equals("up"))
+            direction = "down";
+        else if(direction.equals("down"))
+            direction = "up";
     }
 
     public void checkForHighscore(){
@@ -775,11 +837,20 @@ public class Display extends JComponent implements
         finalPanel.add(label);
         JOptionPane optionPane = new JOptionPane();
         if(10 > highscoreInts.size() || score > highscoreInts.get(9)){
-            finalPanel.setPreferredSize(new Dimension(350, 100));
+            finalPanel.setPreferredSize(new Dimension(350, 150));
             optionPane.setPreferredSize(new Dimension(350, 0));
             UIManager.put("OptionPane.okButtonText", "Save and close");
-            label.setText("<html>You're on the leaderboard!<br>Put your name here:</html>");
-            String name = JOptionPane.showInputDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
+            label.setText("<html>You're on the leaderboard!<br>Put your name here <br>(without spaces):</html>");
+            JTextField textField = new JTextField(10);
+            finalPanel.add(textField);
+            JOptionPane.showMessageDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
+            String name = textField.getText();
+            while(name != null && name.indexOf(" ") != -1){
+                finalPanel.setPreferredSize(new Dimension(500, 50));
+                label.setText("<html>Please provide a name <font color='red'>without spaces</html>");
+                JOptionPane.showMessageDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
+                name = textField.getText();
+            }
             File scoreFile = new File("highscores.txt");
             ArrayList<String> currentHighscoreNames = new ArrayList<>();
             ArrayList<Integer> currentHighscoreInts = new ArrayList<>();

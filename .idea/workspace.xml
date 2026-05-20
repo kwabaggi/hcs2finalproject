@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.18 at 19:15 v1.8 (highscore base added)">
+    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.18 at 20:58 v2.0 (highscore working added)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDo.md" beforeDir="false" afterPath="$PROJECT_DIR$/ToDo.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/ToDo.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/ToDo.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="27" />
+    <option name="cachedIndexableFilesCount" value="28" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -64,24 +68,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Display.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jude/Desktop/CS Projects/HCS2/LabFolders/Lab12FinalProject",
-    "onboarding.tips.debug.path": "/Users/jude/Desktop/CS Projects/HCS2/LabFolders/Lab12FinalProject/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Display.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jude/Desktop/CS Projects/HCS2/LabFolders/Lab12FinalProject&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/jude/Desktop/CS Projects/HCS2/LabFolders/Lab12FinalProject/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -361,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779146118989</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="2026.05.18 at 20:58 v2.0 (highscore working added)">
+      <option name="closed" value="true" />
+      <created>1779152312783</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1779152312783</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -392,43 +404,8 @@
     <MESSAGE value="2026.05.17 at 21:55 v1.7" />
     <MESSAGE value="2026.05.17 at 21:55 v1.70" />
     <MESSAGE value="2026.05.18 at 19:15 v1.8 (highscore base added)" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026.05.18 at 19:15 v1.8 (highscore base added)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Display.java</url>
-          <line>784</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Display.java</url>
-          <line>795</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Display.java</url>
-          <line>243</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Display.java</url>
-          <line>261</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Display.java</url>
-          <line>280</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Display.java</url>
-          <line>797</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="2026.05.18 at 20:58 v2.0 (highscore working added)" />
+    <option name="LAST_COMMIT_MESSAGE" value="2026.05.18 at 20:58 v2.0 (highscore working added)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
