@@ -732,8 +732,8 @@ public class Display extends JComponent implements
     //need for mouse input
     public void mousePressed(MouseEvent e)
     {
-        imageX = e.getX();  //get x-coordinate of mouse (and move image to it)
-        imageY = e.getY();  //get y-coordinate of mouse (and move image to it)
+        //imageX = e.getX();  //get x-coordinate of mouse (and move image to it)
+        //imageY = e.getY();  //get y-coordinate of mouse (and move image to it)
         //System.out.println("mouse clicked:  " + imageX + ", " + imageY);
         repaint();  //indicates Display must be redrawn (Java will call paintComponent)
     }
@@ -1050,7 +1050,7 @@ public class Display extends JComponent implements
         if(a.equals("orb"))
             return (int)Math.pow(orb.getValue(), -1*((gameTime-200)/200));
         else if(a.equals("ghost"))
-            return (int)Math.pow(1000, -1*((gameTime-200)/200));
+            return (int)Math.pow(1000,(gameTime+350)/350);
         else return -1;
     }
 
@@ -1080,7 +1080,7 @@ public class Display extends JComponent implements
     }
 
     public void playAudio(String file) {
-        if (soundTimer > 12 || file.equals("pacman_death.wav")) {
+        if (soundTimer > 12 || (!file.equals("pacman_chomp.wav") && !file.equals("ghosttoblue.wav"))) {
             soundTimer = 0;
             File sound = new File(file);
             if (sound.exists()) {
@@ -1149,14 +1149,25 @@ public class Display extends JComponent implements
                     i ++;
                 }
                 scan.close();
+
+                ArrayList<Pair> pairList = new ArrayList<>();
+                for(int b = 0; b < currentHighscoreNames.size(); b++)
+                    pairList.add(new Pair(currentHighscoreNames.get(b), currentHighscoreInts.get(b)));
+                pairList.sort((p1, p2) -> Integer.compare(p2.getNum(), p1.getNum()));
+                currentHighscoreNames.clear();
+                currentHighscoreInts.clear();
+                for(Pair p : pairList){
+                    currentHighscoreNames.add(p.getString());
+                    currentHighscoreInts.add(p.getNum());
+                }
                 new PrintWriter("highscores.txt").close();
                 PrintWriter writer = new PrintWriter("highscores.txt");
+                writer.print(name + " ");
+                writer.println(score);
                 for(i = 0; i < currentHighscoreNames.size(); i++){
                     writer.print(currentHighscoreNames.get(i) + " ");
                     writer.println(currentHighscoreInts.get(i));
                 }
-                writer.print(name + " ");
-                writer.print(score);
                 writer.close();
             }
             catch(Exception e) {

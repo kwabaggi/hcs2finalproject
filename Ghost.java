@@ -20,6 +20,7 @@ public class Ghost {
     private int leftTimer;
     static boolean canRunAway;
     private String name;
+    private boolean canPlayAudio;
 
     public Ghost(String name, int imageX, int imageY, Display disp, int type){
         this.name = name;
@@ -54,8 +55,13 @@ public class Ghost {
             }
         }
         else if(isKilled && runAway){
-            if(killTimer < 140)
-                killTimer ++;
+            if(killTimer < 140) {
+                killTimer++;
+                if(canPlayAudio) {
+                    display.playAudio("ghosttohome.wav");
+                    canPlayAudio = false;
+                }
+            }
             else{
                 killTimer = 0;
                 isKilled = false;
@@ -65,7 +71,9 @@ public class Ghost {
         }
         else if(canRunAway && (int)(Math.random()*1250) == 0) {
             runAway = true;
+            display.playAudio("ghosttoblue.wav");
             display.changeGhostImage(type, "vulnerableghost.png");
+            canPlayAudio = true;
         }
 
     }
