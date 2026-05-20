@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.18 at 20:58 v2.0 (highscore working added)">
+    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.19 at 20:35 v2.1 minor changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ghost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ToDo.md" beforeDir="false" afterPath="$PROJECT_DIR$/ToDo.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Display.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/ToDo.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/ToDo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/Ghost.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779152312783</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="2026.05.19 at 20:35 v2.1 minor changes">
+      <option name="closed" value="true" />
+      <created>1779237323225</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1779237323225</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -405,7 +411,8 @@
     <MESSAGE value="2026.05.17 at 21:55 v1.70" />
     <MESSAGE value="2026.05.18 at 19:15 v1.8 (highscore base added)" />
     <MESSAGE value="2026.05.18 at 20:58 v2.0 (highscore working added)" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026.05.18 at 20:58 v2.0 (highscore working added)" />
+    <MESSAGE value="2026.05.19 at 20:35 v2.1 minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="2026.05.19 at 20:35 v2.1 minor changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

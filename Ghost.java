@@ -19,8 +19,10 @@ public class Ghost {
     private boolean onlyGoingLeft;
     private int leftTimer;
     static boolean canRunAway;
+    private String name;
 
-    public Ghost(int imageX, int imageY, Display disp, int type){
+    public Ghost(String name, int imageX, int imageY, Display disp, int type){
+        this.name = name;
         this.imageX = imageX;
         this.imageY = imageY;
         spawnX = imageX;
@@ -212,5 +214,9 @@ public class Ghost {
 
     public static void setCanRunAway(){
         canRunAway = true;
+    }
+
+    public String getName(){
+        return name;
     }
 }

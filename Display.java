@@ -308,10 +308,10 @@ public class Display extends JComponent implements
 
         ghosts = new ArrayList<Ghost>();
         //add ghost to list and initialize ghosts
-        ghost1 = new Ghost(displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+115, this, 1);
-        ghost2 = new Ghost(displayWidth/2-(150/2)+25, displayHeight/2-(150/2)+170, this, 2);
-        ghost3 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+115, this, 3);
-        ghost4 = new Ghost(displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+175, this, 4);
+        ghost1 = new Ghost("Mr. Feinberg", displayWidth/2-(150/2)+30, displayHeight/2-(150/2)+115, this, 1);
+        ghost2 = new Ghost("Mr. Olexio", displayWidth/2-(150/2)+25, displayHeight/2-(150/2)+170, this, 2);
+        ghost3 = new Ghost("Dr. Dennett", displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+115, this, 3);
+        ghost4 = new Ghost("Mr. B", displayWidth/2-(150/2)+90, displayHeight/2-(150/2)+175, this, 4);
         ghosts.add(ghost1);
         ghosts.add(ghost2);
         ghosts.add(ghost3);
@@ -588,10 +588,10 @@ public class Display extends JComponent implements
                 for (Ghost ghost : ghosts) {
                     double dist = distance(ghost.getCenterX(), ghost.getCenterY(), pacCenterX, pacCenterY);
                     //System.out.println(dist);
-                    if (!ghost.isRunAway() && dist < 40) {
+                    if (!ghost.isRunAway() && dist < 45) {
                         JPanel finalPanel = new JPanel();
                         playAudio("pacman_death.wav");
-                        JLabel label = new JLabel("<html>You died. Your score is: <font color = '#A11FC2'><b>" + score + "</b></html>");
+                        JLabel label = new JLabel("<html>You died to <font color = 'red'>" + ghost.getName() + "<font color = 'black'><br>Your score is: <font color = '#A11FC2'><b>" + score + "</b></html>");
                         JLabel second = new JLabel("<html><font color = '#2BAD7D'><br>Thanks for playing Pac-Men! \uD83D\uDE01<br><font color = 'black'>Close to see if you got a highscore </html>");;
                         label.setFont(new Font("Arial", Font.BOLD, 25));
                         second.setFont(new Font("Arial", Font.BOLD, 25));
@@ -845,9 +845,9 @@ public class Display extends JComponent implements
             finalPanel.add(textField);
             JOptionPane.showMessageDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
             String name = textField.getText();
-            while(name != null && name.indexOf(" ") != -1){
+            while(name == null || name.length() < 1 || name.indexOf(" ") != -1){
                 finalPanel.setPreferredSize(new Dimension(500, 50));
-                label.setText("<html>Please provide a name <font color='red'>without spaces</html>");
+                label.setText("<html>Please provide a<font color='red'> name without spaces</html>");
                 JOptionPane.showMessageDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
                 name = textField.getText();
             }
