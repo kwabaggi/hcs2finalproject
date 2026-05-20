@@ -88,29 +88,29 @@ public class Display extends JComponent implements
         url = getClass().getResource(ghost1File);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + ghost1File);
-        ghost1ImageIcon = new ImageIcon(url);
-        ghost1Img = ghost1ImageIcon.getImage();
+        ghost1ImageIcon = new ImageIcon(getClass().getResource("feinbergend.png"));
+        ghost1Img = new ImageIcon(url).getImage();
 
         ghost2File = "olexioghost.png";
         url = getClass().getResource(ghost2File);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + ghost2File);
-        ghost2ImageIcon = new ImageIcon(url);
-        ghost2Img = ghost2ImageIcon.getImage();
+        ghost2ImageIcon = new ImageIcon(getClass().getResource("olexioend.png"));
+        ghost2Img = new ImageIcon(url).getImage();
 
         ghost3File = "dennettghost.png";
         url = getClass().getResource(ghost3File);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + ghost3File);
-        ghost3ImageIcon = new ImageIcon(url);
-        ghost3Img = ghost3ImageIcon.getImage();
+        ghost3ImageIcon = new ImageIcon(getClass().getResource("dennettend.png"));
+        ghost3Img = new ImageIcon(url).getImage();
 
         ghost4File = "bologneseghost.jpg";
         url = getClass().getResource(ghost4File);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + ghost4File);
-        ghost4ImageIcon = new ImageIcon(url);
-        ghost4Img = ghost4ImageIcon.getImage();
+        ghost4ImageIcon = new ImageIcon(getClass().getResource("bologneseend.jpg"));
+        ghost4Img = new ImageIcon(url).getImage();
 
         displayWidth = 1250;
         displayHeight = 800;
@@ -124,15 +124,14 @@ public class Display extends JComponent implements
         g.fillRect(500,100,300,10);
         g.fillRect(800,100, 10,75);
         g.fillRect(400,175,410,10);
-        g.fillRect(400,175,10,210);
+        g.fillRect(400,175,10,175);
         g.fillRect(400,500,10,300);
         g.fillRect(400,700,575,10);
         g.fillRect(975,560,10,150);
-        g.fillRect(975,560,50,10);
+
         g.fillRect(1085,635,50,50);
         g.fillRect(1100,175,10,375);
         g.fillRect(925,175,175,10);
-        g.fillRect(925,175,10,50);
         g.fillRect(500,290,425,50);
         g.fillRect(850,410,10,175);
         g.fillRect(150,100,75,350);
@@ -687,28 +686,28 @@ public class Display extends JComponent implements
     public boolean ghostNotOnWall(String direction, Ghost ghost) { //check a little outside pac and see if it overlaps with wall
         boolean bool = true;
         if (direction.equals("left")) {
-            for(int i = ghost.getY()-5; i < ghost.getY() + ghost.getImageHeight()+5; i++){
+            for(int i = ghost.getY()-4; i < ghost.getY() + ghost.getImageHeight()+4; i++){
                 Color leftSide = new Color(maze.getRGB(ghost.getX()-6, i));
                 if(leftSide.equals(Color.BLUE))
                     bool = false;
             }
         }
         else if (direction.equals("right")) {
-            for(int i = ghost.getY()-5; i < ghost.getY() + ghost.getImageHeight()+5; i++){
+            for(int i = ghost.getY()-4; i < ghost.getY() + ghost.getImageHeight()+4; i++){
                 Color rightSide = new Color(maze.getRGB(ghost.getX() + ghost.getImageWidth() + 6, i));
                 if(rightSide.equals(Color.BLUE))
                     bool = false;
             }
         }
         else if (direction.equals("up")) {
-            for(int i = ghost.getX()-5; i < ghost.getX() + ghost.getImageWidth()+5; i++){
+            for(int i = ghost.getX()-4; i < ghost.getX() + ghost.getImageWidth()+4; i++){
                 Color topSide = new Color(maze.getRGB(i, ghost.getY() - 6));
                 if(topSide.equals(Color.BLUE))
                     bool = false;
             }
         }
         else if (direction.equals("down")) {
-            for(int i = ghost.getX()-5; i < ghost.getX() + ghost.getImageWidth()+5; i++){
+            for(int i = ghost.getX()-4; i < ghost.getX() + ghost.getImageWidth()+4; i++){
                 Color topSide = new Color(maze.getRGB(i, ghost.getY() + ghost.getImageHeight() + 6));
                 if(topSide.equals(Color.BLUE))
                     bool = false;
