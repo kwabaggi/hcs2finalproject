@@ -39,8 +39,14 @@ public class Ghost {
 
     public void run() {
         if (runAway && !isKilled) {
-            if (runAwayTimer < 300)
-            runAwayTimer ++;
+            if (runAwayTimer <= 300) {
+                if(runAwayTimer >= 200){
+                    if(runAwayTimer < 220 || (runAwayTimer >= 240 && runAwayTimer < 260) || (runAwayTimer >= 280))
+                    display.changeGhostImage(type, "changingghost.png");
+                    else display.changeGhostImage(type, "vulnerableghost.png");
+                }
+                runAwayTimer++;
+            }
             else{
                 runAwayTimer = 0;
                 runAway = false;

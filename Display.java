@@ -62,6 +62,10 @@ public class Display extends JComponent implements
     private int soundTimer;
     static ArrayList<Integer> highscoreInts = new ArrayList<Integer>();
     static ArrayList<String> highscoreNames = new ArrayList<String>();
+    static ImageIcon ghost1ImageIcon;
+    static ImageIcon ghost2ImageIcon;
+    static ImageIcon ghost3ImageIcon;
+    static ImageIcon ghost4ImageIcon;
 
     public Display()
     {
@@ -84,25 +88,29 @@ public class Display extends JComponent implements
         url = getClass().getResource(ghost1File);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + ghost1File);
-        ghost1Img = new ImageIcon(url).getImage();
+        ghost1ImageIcon = new ImageIcon(url);
+        ghost1Img = ghost1ImageIcon.getImage();
 
         ghost2File = "olexioghost.png";
         url = getClass().getResource(ghost2File);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + ghost2File);
-        ghost2Img = new ImageIcon(url).getImage();
+        ghost2ImageIcon = new ImageIcon(url);
+        ghost2Img = ghost2ImageIcon.getImage();
 
         ghost3File = "dennettghost.png";
         url = getClass().getResource(ghost3File);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + ghost3File);
-        ghost3Img = new ImageIcon(url).getImage();
+        ghost3ImageIcon = new ImageIcon(url);
+        ghost3Img = ghost3ImageIcon.getImage();
 
         ghost4File = "bologneseghost.jpg";
         url = getClass().getResource(ghost4File);
         if (url == null)
             throw new RuntimeException("Unable to load:  " + ghost4File);
-        ghost4Img = new ImageIcon(url).getImage();
+        ghost4ImageIcon = new ImageIcon(url);
+        ghost4Img = ghost4ImageIcon.getImage();
 
         displayWidth = 1250;
         displayHeight = 800;
@@ -787,7 +795,7 @@ public class Display extends JComponent implements
                         JOptionPane optionPane = new JOptionPane();
                         optionPane.setPreferredSize(new Dimension(350, 0));
                         UIManager.put("OptionPane.okButtonText", "Close");
-                        JOptionPane.showMessageDialog(frame, finalPanel, "Final Score", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(frame, finalPanel, "Final Score", JOptionPane.INFORMATION_MESSAGE, getTeacherIcon(ghost.getName()));
                         checkForHighscore();
                         String[] args = new String[0];
                         main(args);
@@ -1020,7 +1028,7 @@ public class Display extends JComponent implements
         label.setFont(new Font("Arial", Font.BOLD, 25));
         finalPanel.add(label);
         JOptionPane optionPane = new JOptionPane();
-        if(10 > highscoreInts.size() || score > highscoreInts.get(9)){
+        if(10 > highscoreInts.size() || score > highscoreInts.get(9) && score > 0){
             finalPanel.setPreferredSize(new Dimension(350, 150));
             optionPane.setPreferredSize(new Dimension(350, 0));
             UIManager.put("OptionPane.okButtonText", "Save and close");
@@ -1069,7 +1077,9 @@ public class Display extends JComponent implements
             optionPane.setPreferredSize(new Dimension(350, 0));
             label.setPreferredSize(new Dimension(350, 100));
             UIManager.put("OptionPane.okButtonText", "Exit game");
-            label.setText("<html>The score was lower than<br> the 10th highest score,<br> but thanks for playing! \uD83D\uDE01</html>");
+            if(score > 0)
+            label.setText("<html>The score was lower than<br>the 10th highest score,<br> but thanks for playing! \uD83D\uDE01</html>");
+            else label.setText("<html>You got 0 points...<br> but thanks for playing! \uD83D\uDE01</html>");
             JOptionPane.showMessageDialog(frame, finalPanel, "Highscore Results", JOptionPane.INFORMATION_MESSAGE);
         }
     }
@@ -1085,5 +1095,17 @@ public class Display extends JComponent implements
     public <E> void printAll(List<E> list){
         for(E obj : list)
             System.out.println(obj);
+    }
+
+    public ImageIcon getTeacherIcon(String name){
+        if(name.equals("Mr. Feinberg"))
+            return ghost1ImageIcon;
+        else if(name.equals("Mr. Olexio"))
+            return ghost2ImageIcon;
+        else if(name.equals("Dr. Dennett"))
+            return ghost3ImageIcon;
+        else if(name.equals("Mr. B"))
+            return ghost4ImageIcon;
+        else return null;
     }
 }

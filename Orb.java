@@ -3,7 +3,7 @@ public class Orb{
     private int imageY;
     private int size;
 
-    public Orb(int x, int y, int size){ //x, y =  top left corner
+    public Orb(int x, int y, int size){ //x, y = top left corner
         imageX = x;
         imageY = y;
         this.size = size;
