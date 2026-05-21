@@ -698,23 +698,23 @@ public class Display extends JComponent implements
     public void keyPressed(KeyEvent e)
     {
         int key = e.getKeyCode();  //indicates which key was pressed
-        //System.out.println("key pressed:  " + key);  //shows you key code values for other keys
-        if(key == 87) {  //tests if "up" arrow was pressed
+        System.out.println("key pressed:  " + key);  //shows you key code values for other keys
+        if(key == 87 ||  key == 38) {  //tests if "up" arrow was pressed
             direction = "up";
             justChangedDir = true;
             repaint();  //indicates Display must be redrawn (Java will call paintComponent)
         }
-        else if(key == 83) {  //tests if "up" arrow was pressed
+        else if(key == 83 ||  key == 40) {  //tests if "up" arrow was pressed
             direction = "down";
             justChangedDir = true;
             repaint();  //indicates Display must be redrawn (Java will call paintComponent)
         }
-        else if(key == 65) {  //tests if "up" arrow was pressed
+        else if(key == 65 ||  key == 37) {  //tests if "up" arrow was pressed
             direction = "left";
             justChangedDir = true;
             repaint();  //indicates Display must be redrawn (Java will call paintComponent)
         }
-        else if(key == 68) {  //tests if "up" arrow was pressed
+        else if(key == 68 ||  key == 39) {  //tests if "up" arrow was pressed
             direction = "right";
             justChangedDir = true;
             repaint();  //indicates Display must be redrawn (Java will call paintComponent)
@@ -967,8 +967,8 @@ public class Display extends JComponent implements
                     Ghost.setCanRunAway();
                 } else openerTimer++;
 
-                for (int x = pacCenterX - 7; x < pacCenterX + 7; x++) { //check for orbs
-                    for(int y = pacCenterY - 7; y < pacCenterY + 7; y++) {
+                for (int x = pacCenterX - 10; x < pacCenterX + 10; x++) { //check for orbs
+                    for(int y = pacCenterY - 10; y < pacCenterY + 10; y++) {
                         Color col = new Color(maze.getRGB(x, y));
                         if (col.equals(Color.WHITE) || col.equals(Color.YELLOW)) {
                                 playAudio("pacman_chomp.wav");

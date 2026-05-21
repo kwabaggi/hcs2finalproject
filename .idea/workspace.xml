@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.20 at 13:25 v5.1">
-      <change afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/highscores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab12FinalProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab12FinalProject/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9cb66887-1f85-440b-ac22-3c2c7df54ca2" name="Changes" comment="2026.05.21 at 13:42 v5.5 (Final)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="37" />
+    <option name="cachedIndexableFilesCount" value="38" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -43,12 +35,12 @@
     &quot;assignee&quot;: &quot;banano10&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/kwabaggi/hcs2finalproject",
-    "accountId": "e1cb6d01-c896-45a7-8d9c-331c345ba888"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kwabaggi/hcs2finalproject&quot;,
+    &quot;accountId&quot;: &quot;e1cb6d01-c896-45a7-8d9c-331c345ba888&quot;
   }
-}]]></component>
+}</component>
   <component name="LLMProjectSettings">
     <option name="turned_on" value="false" />
   </component>
@@ -79,7 +71,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jude/Desktop/CS Projects/HCS2/FinishedZIP/Lab12FinalProject",
+    "last_opened_file_path": "/Users/jude/Desktop/CS Projects/HCS2/LabFolders/Pac-Men",
     "onboarding.tips.debug.path": "/Users/jude/Desktop/CS Projects/HCS2/LabFolders/Lab12FinalProject/src/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -465,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779297961905</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="2026.05.21 at 13:42 v5.5 (Final)">
+      <option name="closed" value="true" />
+      <created>1779385383774</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1779385383774</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -480,7 +480,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New changes" />
     <MESSAGE value="Changes by jude" />
     <MESSAGE value="2026.05.14 at 20:34" />
     <MESSAGE value="2026.05.14 at 20:56&#10;Fixed ghost issue" />
@@ -505,7 +504,8 @@
     <MESSAGE value="2026.05.20 at 10:29 v4" />
     <MESSAGE value="2026.05.20 at 13:08 v5 (final)" />
     <MESSAGE value="2026.05.20 at 13:25 v5.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="2026.05.20 at 13:25 v5.1" />
+    <MESSAGE value="2026.05.21 at 13:42 v5.5 (Final)" />
+    <option name="LAST_COMMIT_MESSAGE" value="2026.05.21 at 13:42 v5.5 (Final)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
