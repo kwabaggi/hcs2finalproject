@@ -649,7 +649,7 @@ public class Display extends JComponent implements
             scores.add(score);
         for (int i = 0; i < names.size(); i++) {
             String row = "<html><table><tr><td width='150'><span style='font-size:15px;'>" + names.get(i) +
-                    "</td><td width='120'><span style='font-size:15px;'>" + scores.get(i) + "</td></tr></table></html>";
+                    "</td><td width='120'><span style='font-size:12px;'>" + scores.get(i) + "</td></tr></table></html>";
             listModel.addElement(row);
         }
         JList list = new JList(listModel);
